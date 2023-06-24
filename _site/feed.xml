@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 24 Jun 2023 12:58:15 +0700</pubDate>
-    <lastBuildDate>Sat, 24 Jun 2023 12:58:15 +0700</lastBuildDate>
+    <pubDate>Sat, 24 Jun 2023 15:10:48 +0700</pubDate>
+    <lastBuildDate>Sat, 24 Jun 2023 15:10:48 +0700</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -18,16 +18,15 @@
 &lt;p&gt;&lt;a href=&quot;https://pwnable.tw/&quot;&gt;Pwnable.tw&lt;/a&gt; là một trang luyện tập mảng pwn khá nổi tiếng của Đài Loan. Theo tôi cảm nhận, thử thách ở đây khá khó cho người mới. Nếu các bạn không làm được thì cũng đừng lấy gì làm lạ. Tôi đã mất khoảng hơn 1 tuần để nghiền ngẫm challenge đầu tiên.&lt;/p&gt;
 
 &lt;h2 id=&quot;0x01-start&quot;&gt;0x01 Start&lt;/h2&gt;
-&lt;hr /&gt;
 
 &lt;h3 id=&quot;i-tổng-quan&quot;&gt;I. Tổng quan&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/images/Pwnable.tw/0x01%20Start/start.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Đề bài cho chúng ta duy nhất một file là “start”. Việc đầu tiên tôi thường làm sẽ là kiểm tra xem file là 32 hay 64 bits. Để kiểm tra, tôi thường dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;file&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Đề bài cho chúng ta duy nhất một file là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start&lt;/code&gt;. Việc đầu tiên tôi thường làm sẽ là kiểm tra xem file là 32 hay 64 bits. Để kiểm tra, tôi thường dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;file&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;file start
 start: ELF 32-bit LSB executable, Intel 80386, version 1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;SYSV&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, statically linked, not stripped
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Thông tin cho chúng ta biết được đây là một file 32 bits. Load chương trình vào IDA PRO 32, quan sát các hàm ở mục &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Functions&lt;/code&gt;, nhận thấy rằng chương trình chỉ xoay quanh hàm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_start&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Thông tin cho chúng ta biết được đây là một file 32 bits. Load chương trình vào IDAPRO x32, quan sát các hàm ở mục &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Functions&lt;/code&gt;, nhận thấy rằng chương trình chỉ xoay quanh hàm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_start&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;ii-phân-tích&quot;&gt;II. Phân tích&lt;/h3&gt;
 
@@ -68,6 +67,8 @@ retn
   &lt;li&gt;2774654Ch = “‘teL”&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;Chúng đại diện cho chuỗi “&lt;strong&gt;Let’s start the CTF:&lt;/strong&gt;”&lt;/p&gt;
+
 &lt;p&gt;Đoạn mã tiếp theo, chương trình gọi ra 2 system call là sys_write và sys_read&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mov     ecx, esp        ; addr
@@ -95,12 +96,11 @@ int     80h             ; LINUX -
   &lt;li&gt;Đọc số byte: 0x3C&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Đoạn mã&lt;/p&gt;
+&lt;p&gt;Đoạn mã cuối cùng tăng giá trị thanh &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; lên 0x14 đơn vị. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;retn&lt;/code&gt; gọi địa chỉ thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; đang giữ rồi cộng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; lên 4 đơn vị.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;add     esp, 14h
 retn
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Tăng giá trị thanh &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; lên 0x14 đơn vị. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;retn&lt;/code&gt; gọi địa chỉ thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; đang giữ rồi cộng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; lên 4 đơn vị.&lt;/p&gt;
 
 &lt;h3 id=&quot;iii-lỗ-hổng&quot;&gt;III. Lỗ hổng&lt;/h3&gt;
 
@@ -108,16 +108,22 @@ retn
 
 &lt;p&gt;&lt;img src=&quot;/images/Pwnable.tw/0x01%20Start/image.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Giá trị của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP = 0xFFFFD124&lt;/code&gt;, giá trị của thanh ESP ban đầu là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP = 0xFFFFD140&lt;/code&gt;. Chú ý rằng, thường các challenge sẽ bật &lt;strong&gt;Address Space Layout Randomization&lt;/strong&gt; nên giá trị thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu luôn có giá trị ngẫu nhiên. (Đây là lý do vì sao mình không lấy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP = 0xFFFFD140&lt;/code&gt; để khai thác lỗ hổng)&lt;/p&gt;
+&lt;p&gt;Giá trị của thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ở:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hiện tại:  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD124&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Ban đầu:  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD140&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Như ta đã phân tích ở trên, system call read cho phép đọc 60 bytes vào stack. Nếu chúng đã nhập vào 20 bytes, thì từ địa chỉ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD124&lt;/code&gt; đến &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD134&lt;/code&gt; sẽ được fill đủ. Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa chỉ trên nó sẽ bị thay đổi.&lt;/p&gt;
+&lt;p&gt;Chú ý rằng, thường các challenge sẽ bật &lt;strong&gt;Address Space Layout Randomization&lt;/strong&gt; nên giá trị thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu luôn có giá trị ngẫu nhiên. (Đây là lý do vì sao mình không lấy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP = 0xFFFFD140&lt;/code&gt; để khai thác lỗ hổng)&lt;/p&gt;
+
+&lt;p&gt;Như ta đã phân tích ở trên, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys_read&lt;/code&gt; cho phép đọc 60 bytes vào stack. Nếu chúng đã nhập vào 20 bytes, thì từ địa chỉ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD124&lt;/code&gt; đến &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD134&lt;/code&gt; sẽ được fill đủ. Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa chỉ trên nó sẽ bị thay đổi.&lt;/p&gt;
 
 &lt;h3 id=&quot;iv-hướng-tấn-công&quot;&gt;IV. Hướng tấn công&lt;/h3&gt;
 
 &lt;p&gt;Công việc chúng ta cần thực hiện:&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;Lấy được địa chỉ thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu.&lt;/li&gt;
-  &lt;li&gt;Từ việc cho được giá trị thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu, chúng ta sẽ đưa địa chỉ trả về của hàm là địa chỉ của shellcode.&lt;/li&gt;
+  &lt;li&gt;Từ việc có được giá trị thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu, chúng ta sẽ đưa địa chỉ trả về của hàm là địa chỉ của shellcode.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;công-việc-1&quot;&gt;Công việc 1&lt;/h3&gt;
@@ -125,16 +131,18 @@ retn
 
 &lt;p&gt;Để lấy giá trị của thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu rất đơn giản. Chúng ta nhập đủ 20 bytes để lấp đầy địa chỉ từ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD124&lt;/code&gt; đến &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD134&lt;/code&gt;, tiếp tục ghi thêm 4 bytes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0x08048087&lt;/code&gt; để chương trình có thể gọi system call read và write lần thứ 2.&lt;/p&gt;
 
-&lt;p&gt;Bây giờ, giá trị của thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; sẽ là: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD124 + 0x14 + 0x4 = 0xFFFFD13C&lt;/code&gt;. Chú ý, đây cũng là nơi chứa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu.&lt;/p&gt;
+&lt;p&gt;Bây giờ, giá trị của thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; sẽ là: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD124 + 0x14 + 0x4 = 0xFFFFD13C&lt;/code&gt;. Chú ý, đây cũng là nơi chứa giá trị thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu.&lt;/p&gt;
 
-&lt;p&gt;Chỉ cần sử dụng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys_write&lt;/code&gt;, in ra 4 bytes đầu tiên sẽ lấy được địa chỉ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu&lt;/p&gt;
+&lt;p&gt;Lợi dụng việc gọi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys_write&lt;/code&gt; lần thứ 2. Chỉ cần in ra 4 bytes đầu tiên, chúng ta sẽ lấy được địa chỉ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;payload1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;x&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x14&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;p32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x08048087&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sendafter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;:&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;payload1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;esp_leaked&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;u32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()[:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;công-việc-2&quot;&gt;Công việc 2&lt;/h3&gt;
 
-&lt;p&gt;Khi đã có địa chỉ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu, việc của chúng ta là phải tính toán xem input bao nhiêu ký tự để chương trình có thể thực thi được shellcode.&lt;/p&gt;
+&lt;p&gt;Sau khi đã có địa chỉ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu. Việc của chúng ta là phải tính toán xem phải input bao nhiêu ký tự để chương trình có thể thực thi được shellcode.&lt;/p&gt;
 
 &lt;p&gt;Gọi địa chỉ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP = X&lt;/code&gt;, giá trị hiện tại &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP = X - 4&lt;/code&gt;&lt;/p&gt;
 
@@ -161,10 +169,10 @@ retn
 &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;interactive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;vi-hướng-dẫn&quot;&gt;VI. Hướng dẫn&lt;/h3&gt;
+&lt;h3 id=&quot;vi-tham-khảo&quot;&gt;VI. Tham khảo&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;https://hackmd.io/@y198/ry6GrF3gi&lt;/li&gt;
-  &lt;li&gt;https://blog.csdn.net/weixin_43483799/article/details/113844032&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hackmd.io/@y198/ry6GrF3gi&quot;&gt;Pwnable.tw - Start @y198&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/weixin_43483799/article/details/113844032&quot;&gt;Pwnable.tw - Start @c01dkit&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         <pubDate>Fri, 23 Jun 2023 00:00:00 +0700</pubDate>

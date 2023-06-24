@@ -74,16 +74,15 @@
 <p><a href="https://pwnable.tw/">Pwnable.tw</a> là một trang luyện tập mảng pwn khá nổi tiếng của Đài Loan. Theo tôi cảm nhận, thử thách ở đây khá khó cho người mới. Nếu các bạn không làm được thì cũng đừng lấy gì làm lạ. Tôi đã mất khoảng hơn 1 tuần để nghiền ngẫm challenge đầu tiên.</p>
 
 <h2 id="0x01-start">0x01 Start</h2>
-<hr />
 
 <h3 id="i-tổng-quan">I. Tổng quan</h3>
 <p><img src="/images/Pwnable.tw/0x01%20Start/start.png" alt="" /></p>
 
-<p>Đề bài cho chúng ta duy nhất một file là “start”. Việc đầu tiên tôi thường làm sẽ là kiểm tra xem file là 32 hay 64 bits. Để kiểm tra, tôi thường dùng <code class="language-plaintext highlighter-rouge">file</code>.</p>
+<p>Đề bài cho chúng ta duy nhất một file là <code class="language-plaintext highlighter-rouge">start</code>. Việc đầu tiên tôi thường làm sẽ là kiểm tra xem file là 32 hay 64 bits. Để kiểm tra, tôi thường dùng <code class="language-plaintext highlighter-rouge">file</code>.</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>file start
 start: ELF 32-bit LSB executable, Intel 80386, version 1 <span class="o">(</span>SYSV<span class="o">)</span>, statically linked, not stripped
 </code></pre></div></div>
-<p>Thông tin cho chúng ta biết được đây là một file 32 bits. Load chương trình vào IDA PRO 32, quan sát các hàm ở mục <code class="language-plaintext highlighter-rouge">Functions</code>, nhận thấy rằng chương trình chỉ xoay quanh hàm <code class="language-plaintext highlighter-rouge">_start</code>.</p>
+<p>Thông tin cho chúng ta biết được đây là một file 32 bits. Load chương trình vào IDAPRO x32, quan sát các hàm ở mục <code class="language-plaintext highlighter-rouge">Functions</code>, nhận thấy rằng chương trình chỉ xoay quanh hàm <code class="language-plaintext highlighter-rouge">_start</code>.</p>
 
 <h3 id="ii-phân-tích">II. Phân tích</h3>
 
@@ -124,6 +123,8 @@ retn
   <li>2774654Ch = “‘teL”</li>
 </ul>
 
+<p>Chúng đại diện cho chuỗi “<strong>Let’s start the CTF:</strong>”</p>
+
 <p>Đoạn mã tiếp theo, chương trình gọi ra 2 system call là sys_write và sys_read</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mov     ecx, esp        ; addr
@@ -151,12 +152,11 @@ int     80h             ; LINUX -
   <li>Đọc số byte: 0x3C</li>
 </ul>
 
-<p>Đoạn mã</p>
+<p>Đoạn mã cuối cùng tăng giá trị thanh <code class="language-plaintext highlighter-rouge">ESP</code> lên 0x14 đơn vị. <code class="language-plaintext highlighter-rouge">retn</code> gọi địa chỉ thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> đang giữ rồi cộng <code class="language-plaintext highlighter-rouge">ESP</code> lên 4 đơn vị.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add     esp, 14h
 retn
 </code></pre></div></div>
-<p>Tăng giá trị thanh <code class="language-plaintext highlighter-rouge">ESP</code> lên 0x14 đơn vị. <code class="language-plaintext highlighter-rouge">retn</code> gọi địa chỉ thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> đang giữ rồi cộng <code class="language-plaintext highlighter-rouge">ESP</code> lên 4 đơn vị.</p>
 
 <h3 id="iii-lỗ-hổng">III. Lỗ hổng</h3>
 
@@ -164,16 +164,22 @@ retn
 
 <p><img src="/images/Pwnable.tw/0x01%20Start/image.png" alt="Alt text" /></p>
 
-<p>Giá trị của <code class="language-plaintext highlighter-rouge">ESP = 0xFFFFD124</code>, giá trị của thanh ESP ban đầu là <code class="language-plaintext highlighter-rouge">ESP = 0xFFFFD140</code>. Chú ý rằng, thường các challenge sẽ bật <strong>Address Space Layout Randomization</strong> nên giá trị thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu luôn có giá trị ngẫu nhiên. (Đây là lý do vì sao mình không lấy <code class="language-plaintext highlighter-rouge">ESP = 0xFFFFD140</code> để khai thác lỗ hổng)</p>
+<p>Giá trị của thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ở:</p>
+<ul>
+  <li>Hiện tại:  <code class="language-plaintext highlighter-rouge">0xFFFFD124</code></li>
+  <li>Ban đầu:  <code class="language-plaintext highlighter-rouge">0xFFFFD140</code></li>
+</ul>
 
-<p>Như ta đã phân tích ở trên, system call read cho phép đọc 60 bytes vào stack. Nếu chúng đã nhập vào 20 bytes, thì từ địa chỉ <code class="language-plaintext highlighter-rouge">0xFFFFD124</code> đến <code class="language-plaintext highlighter-rouge">0xFFFFD134</code> sẽ được fill đủ. Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa chỉ trên nó sẽ bị thay đổi.</p>
+<p>Chú ý rằng, thường các challenge sẽ bật <strong>Address Space Layout Randomization</strong> nên giá trị thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu luôn có giá trị ngẫu nhiên. (Đây là lý do vì sao mình không lấy <code class="language-plaintext highlighter-rouge">ESP = 0xFFFFD140</code> để khai thác lỗ hổng)</p>
+
+<p>Như ta đã phân tích ở trên, <code class="language-plaintext highlighter-rouge">sys_read</code> cho phép đọc 60 bytes vào stack. Nếu chúng đã nhập vào 20 bytes, thì từ địa chỉ <code class="language-plaintext highlighter-rouge">0xFFFFD124</code> đến <code class="language-plaintext highlighter-rouge">0xFFFFD134</code> sẽ được fill đủ. Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa chỉ trên nó sẽ bị thay đổi.</p>
 
 <h3 id="iv-hướng-tấn-công">IV. Hướng tấn công</h3>
 
 <p>Công việc chúng ta cần thực hiện:</p>
 <ol>
   <li>Lấy được địa chỉ thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu.</li>
-  <li>Từ việc cho được giá trị thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu, chúng ta sẽ đưa địa chỉ trả về của hàm là địa chỉ của shellcode.</li>
+  <li>Từ việc có được giá trị thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu, chúng ta sẽ đưa địa chỉ trả về của hàm là địa chỉ của shellcode.</li>
 </ol>
 
 <h3 id="công-việc-1">Công việc 1</h3>
@@ -181,16 +187,18 @@ retn
 
 <p>Để lấy giá trị của thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu rất đơn giản. Chúng ta nhập đủ 20 bytes để lấp đầy địa chỉ từ <code class="language-plaintext highlighter-rouge">0xFFFFD124</code> đến <code class="language-plaintext highlighter-rouge">0xFFFFD134</code>, tiếp tục ghi thêm 4 bytes <code class="language-plaintext highlighter-rouge">0x08048087</code> để chương trình có thể gọi system call read và write lần thứ 2.</p>
 
-<p>Bây giờ, giá trị của thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> sẽ là: <code class="language-plaintext highlighter-rouge">0xFFFFD124 + 0x14 + 0x4 = 0xFFFFD13C</code>. Chú ý, đây cũng là nơi chứa <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu.</p>
+<p>Bây giờ, giá trị của thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> sẽ là: <code class="language-plaintext highlighter-rouge">0xFFFFD124 + 0x14 + 0x4 = 0xFFFFD13C</code>. Chú ý, đây cũng là nơi chứa giá trị thanh ghi <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu.</p>
 
-<p>Chỉ cần sử dụng <code class="language-plaintext highlighter-rouge">sys_write</code>, in ra 4 bytes đầu tiên sẽ lấy được địa chỉ <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu</p>
+<p>Lợi dụng việc gọi <code class="language-plaintext highlighter-rouge">sys_write</code> lần thứ 2. Chỉ cần in ra 4 bytes đầu tiên, chúng ta sẽ lấy được địa chỉ <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payload1</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x08048087</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="nf">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s">':'</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span> 
+<span class="n">esp_leaked</span> <span class="o">=</span> <span class="nf">u32</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="nf">recv</span><span class="p">()[:</span><span class="mi">4</span><span class="p">])</span>
 </code></pre></div></div>
 
 <h3 id="công-việc-2">Công việc 2</h3>
 
-<p>Khi đã có địa chỉ <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu, việc của chúng ta là phải tính toán xem input bao nhiêu ký tự để chương trình có thể thực thi được shellcode.</p>
+<p>Sau khi đã có địa chỉ <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu. Việc của chúng ta là phải tính toán xem phải input bao nhiêu ký tự để chương trình có thể thực thi được shellcode.</p>
 
 <p>Gọi địa chỉ <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu là <code class="language-plaintext highlighter-rouge">ESP = X</code>, giá trị hiện tại <code class="language-plaintext highlighter-rouge">ESP = X - 4</code></p>
 
@@ -217,10 +225,10 @@ retn
 <span class="n">r</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="vi-hướng-dẫn">VI. Hướng dẫn</h3>
+<h3 id="vi-tham-khảo">VI. Tham khảo</h3>
 <ol>
-  <li>https://hackmd.io/@y198/ry6GrF3gi</li>
-  <li>https://blog.csdn.net/weixin_43483799/article/details/113844032</li>
+  <li><a href="https://hackmd.io/@y198/ry6GrF3gi">Pwnable.tw - Start @y198</a></li>
+  <li><a href="https://blog.csdn.net/weixin_43483799/article/details/113844032">Pwnable.tw - Start @c01dkit</a></li>
 </ol>
 
   </div>
