@@ -21,7 +21,7 @@ layout: default
 
 </div> -->
 
-<img style="float: right; max-width: 33%; border-radius: 50%; margin: 0 0 1em 2em;" src="/images/georgedo.png">
+<img style="float: right; max-width: 33%; border-radius: 50%; margin: 0 0 1em 2em; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;" src="/images/georgedo.png">
 
 Xin chào các bạn, tớ là Đậu Đậu, sinh viên năm nhất chuyên ngành CNTT. Mình sinh ra và lớn lên tại mảnh đất miền Trung đầy nắng và gió, Nghệ An. Hiện tại, mình đang sinh sống và học tập tại Hà Nội.
 
