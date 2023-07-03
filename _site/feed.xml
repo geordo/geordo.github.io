@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 02 Jul 2023 14:43:39 +0700</pubDate>
-    <lastBuildDate>Sun, 02 Jul 2023 14:43:39 +0700</lastBuildDate>
+    <pubDate>Tue, 04 Jul 2023 00:19:09 +0700</pubDate>
+    <lastBuildDate>Tue, 04 Jul 2023 00:19:09 +0700</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -26,7 +26,17 @@
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;file start
 start: ELF 32-bit LSB executable, Intel 80386, version 1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;SYSV&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, statically linked, not stripped
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;p&gt;Thông tin cho chúng ta biết được đây là một file 32 bits. Load chương trình vào IDAPRO x32, quan sát các hàm ở mục &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Functions&lt;/code&gt;, nhận thấy rằng chương trình chỉ xoay quanh hàm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_start&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tiếp đến, tôi sẽ sử dụng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;checksec&lt;/code&gt; để kiểm tra các lớp bảo vệ của file. Tôi đoán sẽ có nhiều bạn không hiểu dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;checksec&lt;/code&gt; để làm gì. Ngày trước tôi cũng như vậy, nhưng sau một khoảng thời gian ngắn, tôi được tiếp cận thêm về lỗ bổng &lt;strong&gt;BOF - Buffer Overflow&lt;/strong&gt;, tôi mới thấy nó vô cũng hữu hiệu.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;checksec &lt;span class=&quot;nt&quot;&gt;--file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;start&quot;&lt;/span&gt;
+RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         FORTIFY Fortified       Fortifiable     FILE
+No RELRO        No canary found   NX disabled   No PIE          No RPATH   No RUNPATH   8&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Symbols        No    0               0               start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Đối với bài toán này, để đơn giản, các bạn chỉ cần quan tâm tới thông số &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NX: Disabled&lt;/code&gt;. Nghĩa là các bạn có thể chèn mã thực thi lên stack. Nếu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NX: Enabled&lt;/code&gt;, cho dù mã thực thi được chèn lên stack thì nó vẫn sẽ không hoạt động.&lt;/p&gt;
 
 &lt;h3 id=&quot;ii-phân-tích&quot;&gt;II. Phân tích&lt;/h3&gt;
 
@@ -78,25 +88,26 @@ mov     al, 4
 int     80h             ; LINUX - sys_write
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Thông tin system call&lt;/p&gt;
+&lt;p&gt;Thông tin của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys_write&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Đọc chuỗi từ địa chỉ ESP hiện tại&lt;/li&gt;
-  &lt;li&gt;Độ dài: 0x14 bytes&lt;/li&gt;
+  &lt;li&gt;Xuất ra màn hình chuỗi từ địa chỉ ESP hiện tại&lt;/li&gt;
+  &lt;li&gt;Số byte: 0x14 bytes&lt;/li&gt;
   &lt;li&gt;File descriptor: stdout&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xor     ebx, ebx
 mov     dl, 3Ch ; &apos;&amp;lt;&apos;
 mov     al, 3
-int     80h             ; LINUX -
+int     80h             ; LINUX - sys_read
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Thông tin system call&lt;/p&gt;
+&lt;p&gt;Thông tin của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys_read&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Đọc số byte: 0x3C&lt;/li&gt;
+  &lt;li&gt;Đọc một chuỗi từ bộ nhập chuẩn&lt;/li&gt;
+  &lt;li&gt;Số byte: 0x3C&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Đoạn mã cuối cùng tăng giá trị thanh &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; lên 0x14 đơn vị. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;retn&lt;/code&gt; gọi địa chỉ thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; đang giữ rồi cộng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; lên 4 đơn vị.&lt;/p&gt;
+&lt;p&gt;Đoạn mã cuối cùng tăng giá trị thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; lên 0x14 đơn vị. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;retn&lt;/code&gt; gọi địa chỉ thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; đang giữ rồi cộng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; lên 4 đơn vị.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;add     esp, 14h
 retn
@@ -116,7 +127,8 @@ retn
 
 &lt;p&gt;Chú ý rằng, thường các challenge sẽ bật &lt;strong&gt;Address Space Layout Randomization&lt;/strong&gt; nên giá trị thanh ghi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP&lt;/code&gt; ban đầu luôn có giá trị ngẫu nhiên. (Đây là lý do vì sao mình không lấy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP = 0xFFFFD140&lt;/code&gt; để khai thác lỗ hổng)&lt;/p&gt;
 
-&lt;p&gt;Như ta đã phân tích ở trên, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys_read&lt;/code&gt; cho phép đọc 60 bytes vào stack. Nếu chúng đã nhập vào 20 bytes, thì từ địa chỉ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD124&lt;/code&gt; đến &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD134&lt;/code&gt; sẽ được fill đủ. Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa chỉ trên nó sẽ bị thay đổi.&lt;/p&gt;
+&lt;p&gt;Như ta đã phân tích ở trên, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys_read&lt;/code&gt; cho phép đọc 60 bytes vào stack. Nếu chúng đã nhập vào 20 bytes, thì từ địa chỉ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD124&lt;/code&gt; đến &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFFD134&lt;/code&gt; sẽ được fill đủ.&lt;br /&gt;
+Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa chỉ trên nó sẽ bị thay đổi. Dẫn tới lỗ hổng &lt;strong&gt;BOF&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;iv-hướng-tấn-công&quot;&gt;IV. Hướng tấn công&lt;/h3&gt;
 
