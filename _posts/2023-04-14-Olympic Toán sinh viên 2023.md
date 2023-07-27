@@ -5,6 +5,7 @@ title:  "Olympic Toán sinh viên 2023"
 
 Tôi là sinh viên năm nhất của Đại học Thủy Lợi tham gia kỳ thi Olympic Toán học năm 2023 tại thành phố Huế  đầy thơ mộng. Đoàn Hà Nội chúng tôi gồm 10 thành viên, chia đều thành 2 nhóm: Đại Số và Giải Tích cùng với 2 thầy cô dẫn đoàn là thầy Thọ và cô Lý. <br/>
 Đoàn chúng tôi vào Huế bằng máy bay hãng Vietjet. Ở sân bay chúng tôi bắt gặp đoàn ĐHSP Hà Nội và đoàn Đại học KTQD. Đây cũng là lần đầu tiên tôi được đi máy bay, cảm giác khá hồi hộp và hào hứng. Thật tiếc là sau chuyến bay đó tôi không muốn phải đi thêm máy bay lần nào nữa :(
+
 {:refdef: style="text-align: center;"}
   ![Smile](/images/OlympicMath2023/6.jpg)  
   Hình 0: Vietjet tài trợ bức ảnh này
@@ -124,11 +125,6 @@ Tham quan xong kinh thành Huế, thầy cô cho chúng tôi đi chùa Thiên M�
   ![Smile](/images/OlympicMath2023/10.jpg)  
   Hình 14: Chùa Thiên Mụ
 {: refdef}
-
-<!-- {:refdef: style="text-align: center;"}
-  ![Smile](/images/OlympicMath2023/11.jpg)  
-  Hình 15: Xế chiều 
-{: refdef} -->
 
 Tối về chúng tôi ăn cơm ở khách sạn rồi lên phòng chơi. Buổi đêm thầy về báo điểm cho chúng tôi. Chị Thơm được 13 điểm, chị Lan Anh 12.5, tôi 10.5, anh Nam 8.5, anh Kiên 4.5. Lúc đó tôi thấy anh Kiên rất buồn. Tôi cũng chỉ mong mình được giải khuyến khích thôi. 
 Thầy về phòng, anh Phong, anh Phương chạy sang phòng tôi hỏi thăm kết quả. Ai nấy đều buồn, cuối cùng có tôi, anh Nam, chị Lan Anh sang phòng giải tích đánh bài ăn bánh kem. Tôi hơi đen khi được ăn mỗi một lần :(

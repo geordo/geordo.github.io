@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Jul 2023 13:11:04 +0700</pubDate>
-    <lastBuildDate>Wed, 19 Jul 2023 13:11:04 +0700</lastBuildDate>
+    <pubDate>Thu, 27 Jul 2023 18:57:30 +0700</pubDate>
+    <lastBuildDate>Thu, 27 Jul 2023 18:57:30 +0700</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -719,6 +719,7 @@ Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa
         <title>Olympic Toán sinh viên 2023</title>
         <description>&lt;p&gt;Tôi là sinh viên năm nhất của Đại học Thủy Lợi tham gia kỳ thi Olympic Toán học năm 2023 tại thành phố Huế  đầy thơ mộng. Đoàn Hà Nội chúng tôi gồm 10 thành viên, chia đều thành 2 nhóm: Đại Số và Giải Tích cùng với 2 thầy cô dẫn đoàn là thầy Thọ và cô Lý. &lt;br /&gt;
 Đoàn chúng tôi vào Huế bằng máy bay hãng Vietjet. Ở sân bay chúng tôi bắt gặp đoàn ĐHSP Hà Nội và đoàn Đại học KTQD. Đây cũng là lần đầu tiên tôi được đi máy bay, cảm giác khá hồi hộp và hào hứng. Thật tiếc là sau chuyến bay đó tôi không muốn phải đi thêm máy bay lần nào nữa :(&lt;/p&gt;
+
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/images/OlympicMath2023/6.jpg&quot; alt=&quot;Smile&quot; /&gt;&lt;br /&gt;
   Hình 0: Vietjet tài trợ bức ảnh này&lt;/p&gt;
 
@@ -808,11 +809,6 @@ Câu 1A thì ai cũng làm được nhưng đến câu 1B, tôi lại rất ch�
 
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/images/OlympicMath2023/10.jpg&quot; alt=&quot;Smile&quot; /&gt;&lt;br /&gt;
   Hình 14: Chùa Thiên Mụ&lt;/p&gt;
-
-&lt;!-- {:refdef: style=&quot;text-align: center;&quot;}
-  ![Smile](/images/OlympicMath2023/11.jpg)  
-  Hình 15: Xế chiều 
-{: refdef} --&gt;
 
 &lt;p&gt;Tối về chúng tôi ăn cơm ở khách sạn rồi lên phòng chơi. Buổi đêm thầy về báo điểm cho chúng tôi. Chị Thơm được 13 điểm, chị Lan Anh 12.5, tôi 10.5, anh Nam 8.5, anh Kiên 4.5. Lúc đó tôi thấy anh Kiên rất buồn. Tôi cũng chỉ mong mình được giải khuyến khích thôi. 
 Thầy về phòng, anh Phong, anh Phương chạy sang phòng tôi hỏi thăm kết quả. Ai nấy đều buồn, cuối cùng có tôi, anh Nam, chị Lan Anh sang phòng giải tích đánh bài ăn bánh kem. Tôi hơi đen khi được ăn mỗi một lần :(&lt;/p&gt;
