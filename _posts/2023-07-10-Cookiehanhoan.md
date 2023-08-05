@@ -5,11 +5,11 @@ comments: true
 ---
 
 ## 0x00 Giới thiệu
-Hai ngày cuối tuần, mình cùng một số anh em trong câu lạc bộ chơi giải [Cookie Arena CTF 2023](https://battle.cookiearena.org/arenas/cookie-arena-ctf-season-2). Cuộc thi diễn ra liên tục trong 48 giờ. Chắc do bị DDOS bất ngờ, đáng lẽ cuộc thi được bắt đầu từ 21h nhưng phải hoãn lại. Sang tới tận ngày hôm sau chúng mình mới có thể chơi bình thường. 
+Hai ngày cuối tuần, mình cùng một số anh em trong câu lạc bộ chơi giải [Cookie Arena CTF 2023](https://battle.cookiearena.org/arenas/cookie-arena-ctf-season-2). Cuộc thi được diễn ra liên tục trong 48 giờ. Chắc do bị DDOS bất ngờ, đáng lẽ cuộc thi được bắt đầu từ 21h nhưng phải hoãn lại. Sang tới tận ngày hôm sau chúng mình mới có thể chơi bình thường. 
 
 Đây là lần đầu tiên mình tham gia trọn vẹn một kỳ thi CTF online. Cuộc thi diễn ra theo hình thức cá nhân, nhưng bọn mình lại chơi cùng nhau. Kết quả cả đội đứng thứ 6 chung cuộc nhưng sẽ không viết writeup và nhận quà từ ban tổ chức do vi phạm quy định hehe. 
 
-Anh Việt Thảo giải hầu hết tất cả các bài, mình chỉ giải được một vài bài đơn giản. Dưới đây là lời giải cho một số bài mình làm được trong cuộc thi và sau khi có được hướng dẫn từ anh Việt Thảo.  
+Dưới đây là bài giải cho một số bài mình làm được trong cuộc thi và sau khi có được hướng dẫn từ các anh chị khác.  
 
 ![Alt text](/images/cookiehanhoan2023/image.png)
 
@@ -385,7 +385,7 @@ Chúng ta sử dụng tool `olevba` để kiểm tra các macro VBA.
 
 ![Alt text](/images/cookiehanhoan2023/image-14.png)
 
-Để giải quyết bài toán, `password` sau khi hash sha256 phải bằng 0. Những hash này đều có điểm chung là bắt đầu bằng **0e**. 
+Để giải quyết bài toán này, `password` sau khi hash sha256 phải bằng 0. Những hash này đều có điểm chung là bắt đầu bằng **0e**. 
 
 Lên [https://github.com/spaze/hashes](https://github.com/spaze/hashes/blob/master/sha256.md), chọn một password tùy thích. 
 
@@ -403,7 +403,24 @@ Lên [https://github.com/spaze/hashes](https://github.com/spaze/hashes/blob/mast
 
 ### Magic Login Harder
 
-![Alt text](/images/cookiehanhoan2023/image-18.png)
+```php
+<?php
+    if(isset($_POST["submit"])){
+        $username = base64_decode($_POST['username']);
+        $password = base64_decode($_POST['password']);
+
+        if(($username == $password)){
+            echo 'Username and password are not the same';
+        }
+        else if((md5($username)===md5($password))){
+            $_SESSION['username'] = $username;
+            header('Location: admin.php?file=1.txt');
+        } else {
+            echo 'Username and password are wrong';
+        }
+    }
+?>
+```
 
 Để giải quyết bài toán này, chúng ta phải đi tìm 2 chuỗi **username** và **password** khác nhau nhưng đều có cùng giá trị MD5. Hướng khai thác **MD5 Collision**
 
@@ -411,3 +428,205 @@ Chỉ cần lên Google, search một chút về vấn đề này, chúng ta có
 
 - [Can two different strings generate the same MD5 hash code?](https://stackoverflow.com/questions/1756004/can-two-different-strings-generate-the-same-md5-hash-code)
 - [MD5 Collision Demo](https://www.mscs.dal.ca/~selinger/md5collision)
+
+```python
+import hashlib
+import base64
+
+x = '4dc968ff0ee35c209572d4777b721587d36fa7b21bdc56b74a3dc0783e7b9518afbfa200a8284bf36e8e4b55b35f427593d849676da0d1555d8360fb5f07fea2'
+y = '4dc968ff0ee35c209572d4777b721587d36fa7b21bdc56b74a3dc0783e7b9518afbfa202a8284bf36e8e4b55b35f427593d849676da0d1d55d8360fb5f07fea2'
+
+x = bytes.fromhex(x)
+y = bytes.fromhex(y)
+
+print(x == y, hashlib.md5(x).hexdigest() == hashlib.md5(y).hexdigest())
+
+x = base64.b64encode(x)
+y = base64.b64encode(y)
+
+print(x)
+print(y)
+
+# x = Tclo/w7jXCCVctR3e3IVh9Nvp7Ib3Fa3Sj3AeD57lRivv6IAqChL826OS1WzX0J1k9hJZ22g0VVdg2D7Xwf+og==
+# y = Tclo/w7jXCCVctR3e3IVh9Nvp7Ib3Fa3Sj3AeD57lRivv6ICqChL826OS1WzX0J1k9hJZ22g0dVdg2D7Xwf+og==
+```
+
+Login thành công với cặp **(x, y)** thu được ở trên. Sau đó chuyển qua trang `admin.php` để xử lý tiếp bài toán. 
+
+### Be Positive
+
+**Description**
+
+Libra Dnuf Marketplace
+
+Libra Dnuf is known underground as a marketplace to sell sensitive information and lost secrets. This place has long closed registration but only allows reputable members to exchange items. During a reconnaissance, 0x1115 team caught the exchange of two members codenamed alice and bob.
+
+After analyzing the packets, 0x1115 was able to decrypt the passwords for alice and bob that matched the usernames. With this loophole, the analysis team continues to detect the Transfer Function between users after passing the authentication portal.
+
+To avoid wake a sleeping dog, 0x1115 quickly took a snapshot of Libra Dnuf market and transferred it to CookieArena for investigation to find the important file in the flag package. We also recommend to be careful with the rollback option, because using this function all data will be reset to its original state.
+
+**Solution**
+
+Từ tên bài toán và là bài web dễ nhất trong đề. Khả năng cao bài toán sẽ có lỗ hổng chuyển tiền âm. 
+
+Vào tab `Transfer`, chỉnh sửa giá trị `min = -99999` rồi chuyển tiền cho **Bob** với số tiền là `-2000`. 
+
+![Alt text](/images/cookiehanhoan2023/image-17.png)
+
+Bây giờ, chúng ta đã có dư tiền để mua flag. 
+
+![Alt text](/images/cookiehanhoan2023/image-18.png)
+
+**Flag: CHH{BE_cAr3fUL_WitH_NE6ATIV3_NumBeR_a2c3d35c666e930911bfb0777e1e93ae}**
+
+### Slow Down
+
+**Description**
+
+Libra Dnuf Marketplace
+
+Libra Dnuf is known underground as a marketplace to sell sensitive information and lost secrets. This place has long closed registration but only allows reputable members to exchange items. During a reconnaissance, 0x1115 team caught the exchange of two members codenamed alice and bob.
+
+After analyzing the packets, 0x1115 was able to decrypt the passwords for alice and bob that matched the usernames. With this loophole, the analysis team continues to detect the Transfer Function between users after passing the authentication portal.
+
+To avoid wake a sleeping dog, 0x1115 quickly took a snapshot of Libra Dnuf market and transferred it to CookieArena for investigation to find the important file in the flag package. We also recommend to be careful with the rollback option, because using this function all data will be reset to its original state.
+
+**Solution**
+
+Ở bài toán này, cấu trúc tương tự như bài `Be Positive` nhưng đã bị filter số âm. 
+
+Nhận thấy, phản hồi chuyển tiền thành công về khá lâu, cộng thêm tên bài toán là `Slow Down`. Từ đấy, mình nghĩ hướng xử lý bài toán liên quan tới **Race Condition**. 
+
+Sử dụng 2 trình duyệt khác nhau, cùng login với tài khoản **Alice** và chuyển tiền đến **Bob**. 
+
+![Alt text](/images/cookiehanhoan2023/image-19.png)
+
+**Flag: CHH{ea5y_RaCe_CONd17iOn_e84d1b098a499d032afe243ab64dd49a}**
+
+## 0x05 Crypto 
+
+### Basic Operator
+
+**Description**
+
+Sử dụng kiến thức toán học và cấu trúc đại số để giải mã flag
+
+Tải challenge: [Sổ đăng ký](https://drive.google.com/file/d/12t2NfEJISC_TSI0FFjqiHDEQmlGEH195/view?usp=drive_link) (pass: cookiehanhoan)
+
+**Solution**
+
+```python
+from Crypto.Util import number
+
+def padding_pkcs7(data,block_size=4):
+	tmp = len(data) + (block_size - len(data) % block_size)
+	return data.ljust(tmp,bytes([block_size-(len(data)%block_size)]))
+
+def split_block(data,block_size):
+	return list(int.from_bytes(data[i:i+block_size],'little') for i in range(0,len(data),block_size))
+
+def plus_func(data,shift):
+	return (data+shift)&0xffffffff
+
+def mul_func(data,mul):
+	return (data*mul)&0xffffffff
+
+def xor_shift_right_func(data,bit_loc):
+	return (data^(data>>bit_loc))&0xffffffff
+
+def pow_func(data,e,p):
+	return pow(data,e,p)
+
+def exp_func(data,base,p):
+	return pow(base,data,p)
+
+def ecb_mode(data):
+	return list(pow_func(exp_func(xor_shift_right_func(mul_func(plus_func(block,3442055609),2898124289),1),e,p),e,p) for block in split_block(padding_pkcs7(data,4),4))
+
+if __name__=='__main__':
+	p = 1341161101353773850779
+	e = 2
+	mess = b'CHH{CENSORED}'
+	cipher_flag = ecb_mode(mess)
+	print(cipher_flag)
+```
+
+Nhận thấy bài toán mã hóa từng block 4 byte một. Vì vậy, chúng ta hoàn toàn có thể brute-force các kí tự để đoán từng block một. 
+Để giải quyết bài toán này, chúng ta có hai cách để giải: 
+- Brute-force từng block một như đã phân tích ở trên 
+- Dựng ngược lại các hàm đã cho để đi tìm flag 
+
+**Cách giải 1.**
+
+Nhận thấy rằng **Cipher** có 12 block, với 4 chữ cái đầu tiên của flag sẽ là **CHH{**. Quan sát kết quả mã hóa block đầu tiên này và so sánh với **Cipher**, ta khẳng định được: 
+- Block đầu tiên của flag là **CHH{**
+- Block cuối cùng của flag có 1, 2 hoặc 3 kí tự. Vậy các trường hợp có thể xảy ra là:
+    - b'}\x03\x03\x03'
+    - b'x}\x02\x02'
+    - b'xx}\x01'
+
+```python
+from tqdm import tqdm
+from string import printable
+
+def padding_pkcs7(data,block_size=4):
+	tmp = len(data) + (block_size - len(data) % block_size)
+	return data.ljust(tmp,bytes([block_size-(len(data)%block_size)]))
+
+def split_block(data,block_size):
+	return list(int.from_bytes(data[i:i+block_size],'little') for i in range(0,len(data),block_size))
+
+def plus_func(data,shift):
+	return (data+shift)&0xffffffff
+
+def mul_func(data,mul):
+	return (data*mul)&0xffffffff
+
+def xor_shift_right_func(data,bit_loc):
+	return (data^(data>>bit_loc))&0xffffffff
+
+def pow_func(data,e,p):
+	return pow(data,e,p)
+
+def exp_func(data,base,p):
+	return pow(base,data,p)
+
+def ecb_mode(data):
+	return list(pow_func(exp_func(xor_shift_right_func(mul_func(plus_func(block,3442055609),2898124289),1),e,p),e,p) for block in split_block(padding_pkcs7(data,4),4))
+
+p = 1341161101353773850779
+e = 2
+Cipher = [752589857254588976778, 854606763225554935934, 102518422244000685572, 779286449062901931327, 424602910997772742508, 1194307203769437983433, 501056821915021871618, 691835640758326884371, 778501969928317687301, 1260460302610253211574, 833211399330573153864, 223847974292916916557]
+
+def brute(index):
+    if index != 11:
+        for x in tqdm(range(len(printable))):
+            for y in tqdm(range(len(printable))):
+                for z in range(len(printable)):
+                    for t in range(len(printable)):
+                        flag = (printable[x] + printable[y] + printable[z] + printable[t]).encode() 
+                        if ecb_mode(flag)[0] == Cipher[index]: 
+                            print(flag) 
+                            exit()
+    else: 
+        # b'}\x03\x03\x03'
+        # b'x}\x02\x02'
+        # b'xx}\x01'
+
+        for x in tqdm(range(len(printable))):
+            for y in range(len(printable)):
+                flag = (printable[x] + printable[y] + '}').encode()
+                if ecb_mode(flag)[0] == Cipher[index]: 
+                    print(flag) 
+                    exit()
+            flag = (printable[y] + '}').encode()
+            if ecb_mode(flag)[0] == Cipher[index]: 
+                print(flag) 
+                exit()
+            
+if __name__ == '__main__':
+    for i in range(12):
+        brute(i)
+```
+
+**Flag: CHH{w3lc0m3_70_7h3_m47h_w0rld(1_h4t3_1t_th3r3)}**
