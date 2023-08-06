@@ -23,6 +23,8 @@ Một chú mèo cute chứa đựng nhiều điều bí ẩn. Hãy tìm ra đi�
 
 Tải challenge: [CutieK1tty](https://drive.google.com/file/d/18iGHuowoRUsWqwNmnuWqrqsHbMLwBJG_/view?usp=drive_link) (pass: cookiehanhoan)
 
+**Format FLAG: CHH{XXX}**
+
 **Solution**
 
 Bài toán cho chúng ta hình ảnh một con mèo 
@@ -61,7 +63,7 @@ atob("ZjByM241MWNzX21hNXQzcg==")
 'f0r3n51cs_ma5t3r'
 ```
 
-$\rightarrow$ **Flag: CHH{f0r3n51cs_ma5t3r}**
+**Flag: CHH{f0r3n51cs_ma5t3r}**
 
 ## 0x02 Mobile 
 
@@ -72,6 +74,8 @@ $\rightarrow$ **Flag: CHH{f0r3n51cs_ma5t3r}**
 Với người dùng bình thường, họ không thể nhìn thấy gì. Nhưng hacker thì họ luôn có cách khác. Ứng dụng hoạt động tốt trên các thiết bị Android API 24 trở lên
 
 Tải challenge: [Cat Me](https://drive.google.com/file/d/1Uq8wLlBl3glN5nbHMW5tkiP5IDrZlJ0D/view?usp=drive_link) (pass: cookiehanhoan)
+
+**Format FLAG: CHH{XXX}**
 
 **Solution**
 
@@ -98,6 +102,8 @@ print(flag)
 Một kết nối cực an toàn giữa người dùng và server đã được thiết lập. Kẻ tấn công không thể đứng giữa để nghe ngóng thông tin. Ứng dụng hoạt động tốt trên các thiết bị Android API 24 trở lên
 
 Tải challenge: [Pinned Cookie](https://drive.google.com/file/d/1oagLC-ryf9leAl4LrD9zVETTB6cPZDk_/view?usp=drive_link) (pass: cookiehanhoan)
+
+**Format FLAG: CHH{XXX}**
 
 **Solution**
 
@@ -143,13 +149,15 @@ Trong quá trình phân tích các Tool Auto Game, chúng mình phát hiện ra 
 
 Tải challenge: [Pyreverse](https://drive.google.com/file/d/18g2ZqlfYS4pfEZbAxJD1_9wIVp3KS1A-/view?usp=drive_link) (pass: cookiehanhoan)
 
+**Format FLAG: CHH{XXX}**
+
 **Solution**
 
 Sử dụng `Detect It Easy`, kiểm tra file **.exe** được pack bằng **PyInstaller**. Tới đây, mình sử dụng công cụ [pyinstxtractor](https://github.com/extremecoders-re/pyinstxtractor) để unpack lại file **.py** ban đầu.
 
 ![Alt text](/images/cookiehanhoan2023/image-7.png)
 
-Sau khi thu được file `pyreverser.pyc`, mình tiếp tục lên https://ctfever.uniiem.com để decompile file **.pyc** thành **.py** ban đầu. 
+Sau khi thu được file `pyreverser.pyc`, mình tiếp tục lên [CTFever](https://ctfever.uniiem.com) để decompile file **.pyc** thành **.py** ban đầu. 
 
 ```python
 # Decompiled on CTFever Premium
@@ -205,6 +213,8 @@ Thử thách mô phỏng lại thuật toán sinh key bản quyền phần mềm
 
 Tải challenge: [Jump](https://drive.google.com/file/d/1nCOaD5emAyAqQmJrhB8hlu4UdCbBmRuH/view?usp=drive_link) (pass: cookiehanhoan)
 
+**Format FLAG: CHH{XXX}**
+
 **Solution**
 
 Bài toán cho chúng ta một file `jump.exe`. Bỏ file này vào `IDAPRO 32`, chúng ta thấy được đoạn mã giả của hàm `main`. 
@@ -226,6 +236,8 @@ Lưu ý: **0x00401500 = 4199680**
 Thử thách mô phỏng lại thuật toán sinh key bản quyền phần mềm, hãy chạy thử file chương trình và dịch ngược chúng để tìm FLAG ẩn chứa bên trong.
 
 Tải challenge: [Rev1](https://drive.google.com/file/d/1rzlX1TX4J8XDBuSUj3s8EtErXCOeKKVj/view?usp=sharing) (pass: cookiehanhoan)
+
+**Format FLAG: CHH{XXX}**
 
 **Solution**
 
@@ -350,6 +362,8 @@ Hòa thấy hiện tượng lạ mỗi khi anh ta khởi động máy tính. Anh
 
 Tải challenge: [Sổ đăng ký](https://drive.google.com/file/d/1pShye_YtnUuIObPdnq9PeiIge0Oelsix/view?usp=drive_link) (pass: cookiehanhoan)
 
+**Format FLAG: CHH{XXX}**
+
 **Solution**
 
 Bài toán này, chúng ta nhận được file `NTUSER.DAT`. Mở file bằng tool `Registry Finder`, tìm những từ khóa như **cmd.exe**, **powershell.exe** để xem có thể khai thác được thông tin gì không. 
@@ -371,6 +385,8 @@ Sau khi tham gia một khóa Tin học văn phòng cơ bản, Hòa đã có th�
 
 Tải challenge: [Tin học văn phòng cơ bản](https://drive.google.com/file/d/1WrLFE5qA-qJ6iLEQYQqCo0Xb99Yz8mTH/view?usp=drive_link) (pass: cookiehanhoan)
 
+**Format FLAG: CHH{XXX}**
+
 **Solution**
 
 Chúng ta sử dụng tool `olevba` để kiểm tra các macro VBA. 
@@ -382,6 +398,14 @@ Chúng ta sử dụng tool `olevba` để kiểm tra các macro VBA.
 ## 0x05 Web 
 
 ### Magic Login 
+
+**Description**
+
+Hãy quan sát chức năng đăng nhập, nó có tồn tại những lỗ hổng nghiêm trọng. FLAG được lưu trong `/flag.txt` hãy tìm cách đọc được chúng.
+
+**Format Flag: CHH{XXX}**
+
+**Solution**
 
 ![Alt text](/images/cookiehanhoan2023/image-14.png)
 
@@ -402,6 +426,20 @@ Lên [https://github.com/spaze/hashes](https://github.com/spaze/hashes/blob/mast
 **Flag: CHH{PHP_m4g1c_tr1ck_0lD_but_g0lD_ec3f73ad46f1da5e1f1931a0bb288e0c}**
 
 ### Magic Login Harder
+
+**Description**
+
+Hãy quan sát chức năng đăng nhập, nó có tồn tại những lỗ hổng nghiêm trọng. FLAG được lưu trong `/flagXXX.txt` hãy tìm cách đọc được chúng.
+
+```
+FLAG=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)
+cp /flag.txt /flag$FLAG.txt
+```
+Tải challenge: [Magic Login Harder](https://drive.google.com/file/d/1ZSmsdcJ3iFR2KH4aSBQ9z4xlY-z8o-UH) (pass: cookiehanhoan)
+
+**Format Flag: CHH{XXX}**
+
+**Solution**
 
 ```php
 <?php
@@ -469,7 +507,7 @@ To avoid wake a sleeping dog, 0x1115 quickly took a snapshot of Libra Dnuf marke
 
 Từ tên bài toán và là bài web dễ nhất trong đề. Khả năng cao bài toán sẽ có lỗ hổng chuyển tiền âm. 
 
-Vào tab `Transfer`, chỉnh sửa giá trị `min = -99999` rồi chuyển tiền cho **Bob** với số tiền là `-2000`. 
+Vào tab `Transfer`, chỉnh sửa giá trị `min = -99999` rồi chuyển tiền cho Bob với số tiền là `-2000`. 
 
 ![Alt text](/images/cookiehanhoan2023/image-17.png)
 
@@ -497,7 +535,7 @@ To avoid wake a sleeping dog, 0x1115 quickly took a snapshot of Libra Dnuf marke
 
 Nhận thấy, phản hồi chuyển tiền thành công về khá lâu, cộng thêm tên bài toán là `Slow Down`. Từ đấy, mình nghĩ hướng xử lý bài toán liên quan tới **Race Condition**. 
 
-Sử dụng 2 trình duyệt khác nhau, cùng login với tài khoản **Alice** và chuyển tiền đến **Bob**. 
+Sử dụng 2 trình duyệt khác nhau, cùng login với tài khoản Alice và chuyển tiền đến Bob. 
 
 ![Alt text](/images/cookiehanhoan2023/image-19.png)
 
@@ -511,7 +549,7 @@ Sử dụng 2 trình duyệt khác nhau, cùng login với tài khoản **Alice*
 
 Sử dụng kiến thức toán học và cấu trúc đại số để giải mã flag
 
-Tải challenge: [Sổ đăng ký](https://drive.google.com/file/d/12t2NfEJISC_TSI0FFjqiHDEQmlGEH195/view?usp=drive_link) (pass: cookiehanhoan)
+Tải challenge: [Basic Operator](https://drive.google.com/file/d/12t2NfEJISC_TSI0FFjqiHDEQmlGEH195) (pass: cookiehanhoan)
 
 **Solution**
 
@@ -558,8 +596,8 @@ Nhận thấy bài toán mã hóa từng block 4 byte một. Vì vậy, chúng t
 
 **Cách giải 1.**
 
-Nhận thấy rằng **Cipher** có 12 block, với 4 chữ cái đầu tiên của flag sẽ là **CHH{**. Quan sát kết quả mã hóa block đầu tiên này và so sánh với **Cipher**, ta khẳng định được: 
-- Block đầu tiên của flag là **CHH{**
+Nhận thấy rằng `Cipher` có 12 block, với 4 chữ cái đầu tiên của flag sẽ là **"CHH{"**. Quan sát kết quả mã hóa block đầu tiên này và so sánh với `Cipher`, ta khẳng định được: 
+- Block đầu tiên của flag là **"CHH{"**
 - Block cuối cùng của flag có 1, 2 hoặc 3 kí tự. Vậy các trường hợp có thể xảy ra là:
     - b'}\x03\x03\x03'
     - b'x}\x02\x02'

@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 05 Aug 2023 11:01:18 +0700</pubDate>
-    <lastBuildDate>Sat, 05 Aug 2023 11:01:18 +0700</lastBuildDate>
+    <pubDate>Sun, 06 Aug 2023 15:51:09 +0700</pubDate>
+    <lastBuildDate>Sun, 06 Aug 2023 15:51:09 +0700</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -30,6 +30,8 @@
 &lt;p&gt;Một chú mèo cute chứa đựng nhiều điều bí ẩn. Hãy tìm ra điều thú vị đó.&lt;/p&gt;
 
 &lt;p&gt;Tải challenge: &lt;a href=&quot;https://drive.google.com/file/d/18iGHuowoRUsWqwNmnuWqrqsHbMLwBJG_/view?usp=drive_link&quot;&gt;CutieK1tty&lt;/a&gt; (pass: cookiehanhoan)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Format FLAG: CHH{XXX}&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 
@@ -67,7 +69,7 @@ f1n4lly.txt
 &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;f0r3n51cs_ma5t3r&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;$\rightarrow$ &lt;strong&gt;Flag: CHH{f0r3n51cs_ma5t3r}&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Flag: CHH{f0r3n51cs_ma5t3r}&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;0x02-mobile&quot;&gt;0x02 Mobile&lt;/h2&gt;
 
@@ -78,6 +80,8 @@ f1n4lly.txt
 &lt;p&gt;Với người dùng bình thường, họ không thể nhìn thấy gì. Nhưng hacker thì họ luôn có cách khác. Ứng dụng hoạt động tốt trên các thiết bị Android API 24 trở lên&lt;/p&gt;
 
 &lt;p&gt;Tải challenge: &lt;a href=&quot;https://drive.google.com/file/d/1Uq8wLlBl3glN5nbHMW5tkiP5IDrZlJ0D/view?usp=drive_link&quot;&gt;Cat Me&lt;/a&gt; (pass: cookiehanhoan)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Format FLAG: CHH{XXX}&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 
@@ -103,6 +107,8 @@ f1n4lly.txt
 &lt;p&gt;Một kết nối cực an toàn giữa người dùng và server đã được thiết lập. Kẻ tấn công không thể đứng giữa để nghe ngóng thông tin. Ứng dụng hoạt động tốt trên các thiết bị Android API 24 trở lên&lt;/p&gt;
 
 &lt;p&gt;Tải challenge: &lt;a href=&quot;https://drive.google.com/file/d/1oagLC-ryf9leAl4LrD9zVETTB6cPZDk_/view?usp=drive_link&quot;&gt;Pinned Cookie&lt;/a&gt; (pass: cookiehanhoan)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Format FLAG: CHH{XXX}&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 
@@ -145,6 +151,8 @@ f1n4lly.txt
 &lt;p&gt;Trong quá trình phân tích các Tool Auto Game, chúng mình phát hiện ra kỹ thuật khá phổ biến trong việc viết mã và đóng gói chương trình. Hãy tìm ra kỹ thuật này và tìm cách dịch ngược chúng, FLAG bí mật ẩn được ẩn chứa bên trong.&lt;/p&gt;
 
 &lt;p&gt;Tải challenge: &lt;a href=&quot;https://drive.google.com/file/d/18g2ZqlfYS4pfEZbAxJD1_9wIVp3KS1A-/view?usp=drive_link&quot;&gt;Pyreverse&lt;/a&gt; (pass: cookiehanhoan)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Format FLAG: CHH{XXX}&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 
@@ -206,6 +214,8 @@ f1n4lly.txt
 
 &lt;p&gt;Tải challenge: &lt;a href=&quot;https://drive.google.com/file/d/1nCOaD5emAyAqQmJrhB8hlu4UdCbBmRuH/view?usp=drive_link&quot;&gt;Jump&lt;/a&gt; (pass: cookiehanhoan)&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;Format FLAG: CHH{XXX}&lt;/strong&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Bài toán cho chúng ta một file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jump.exe&lt;/code&gt;. Bỏ file này vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IDAPRO 32&lt;/code&gt;, chúng ta thấy được đoạn mã giả của hàm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;.&lt;/p&gt;
@@ -227,6 +237,8 @@ f1n4lly.txt
 &lt;p&gt;Thử thách mô phỏng lại thuật toán sinh key bản quyền phần mềm, hãy chạy thử file chương trình và dịch ngược chúng để tìm FLAG ẩn chứa bên trong.&lt;/p&gt;
 
 &lt;p&gt;Tải challenge: &lt;a href=&quot;https://drive.google.com/file/d/1rzlX1TX4J8XDBuSUj3s8EtErXCOeKKVj/view?usp=sharing&quot;&gt;Rev1&lt;/a&gt; (pass: cookiehanhoan)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Format FLAG: CHH{XXX}&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 
@@ -349,6 +361,8 @@ debug055:027600B4 cmp     eax, 29CBh
 
 &lt;p&gt;Tải challenge: &lt;a href=&quot;https://drive.google.com/file/d/1pShye_YtnUuIObPdnq9PeiIge0Oelsix/view?usp=drive_link&quot;&gt;Sổ đăng ký&lt;/a&gt; (pass: cookiehanhoan)&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;Format FLAG: CHH{XXX}&lt;/strong&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Bài toán này, chúng ta nhận được file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NTUSER.DAT&lt;/code&gt;. Mở file bằng tool &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Registry Finder&lt;/code&gt;, tìm những từ khóa như &lt;strong&gt;cmd.exe&lt;/strong&gt;, &lt;strong&gt;powershell.exe&lt;/strong&gt; để xem có thể khai thác được thông tin gì không.&lt;/p&gt;
@@ -370,6 +384,8 @@ debug055:027600B4 cmp     eax, 29CBh
 
 &lt;p&gt;Tải challenge: &lt;a href=&quot;https://drive.google.com/file/d/1WrLFE5qA-qJ6iLEQYQqCo0Xb99Yz8mTH/view?usp=drive_link&quot;&gt;Tin học văn phòng cơ bản&lt;/a&gt; (pass: cookiehanhoan)&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;Format FLAG: CHH{XXX}&lt;/strong&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Chúng ta sử dụng tool &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;olevba&lt;/code&gt; để kiểm tra các macro VBA.&lt;/p&gt;
@@ -381,6 +397,14 @@ debug055:027600B4 cmp     eax, 29CBh
 &lt;h2 id=&quot;0x05-web&quot;&gt;0x05 Web&lt;/h2&gt;
 
 &lt;h3 id=&quot;magic-login&quot;&gt;Magic Login&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Hãy quan sát chức năng đăng nhập, nó có tồn tại những lỗ hổng nghiêm trọng. FLAG được lưu trong &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/flag.txt&lt;/code&gt; hãy tìm cách đọc được chúng.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Format Flag: CHH{XXX}&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/cookiehanhoan2023/image-14.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
 
@@ -400,6 +424,19 @@ debug055:027600B4 cmp     eax, 29CBh
 &lt;p&gt;&lt;strong&gt;Flag: CHH{PHP_m4g1c_tr1ck_0lD_but_g0lD_ec3f73ad46f1da5e1f1931a0bb288e0c}&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;magic-login-harder&quot;&gt;Magic Login Harder&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Hãy quan sát chức năng đăng nhập, nó có tồn tại những lỗ hổng nghiêm trọng. FLAG được lưu trong &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/flagXXX.txt&lt;/code&gt; hãy tìm cách đọc được chúng.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLAG=$(cat /dev/urandom | tr -dc &apos;a-zA-Z0-9&apos; | fold -w 5 | head -n 1)
+cp /flag.txt /flag$FLAG.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Tải challenge: &lt;a href=&quot;https://drive.google.com/file/d/1ZSmsdcJ3iFR2KH4aSBQ9z4xlY-z8o-UH&quot;&gt;Magic Login Harder&lt;/a&gt; (pass: cookiehanhoan)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Format Flag: CHH{XXX}&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;submit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])){&lt;/span&gt;
@@ -509,7 +546,7 @@ debug055:027600B4 cmp     eax, 29CBh
 
 &lt;p&gt;Sử dụng kiến thức toán học và cấu trúc đại số để giải mã flag&lt;/p&gt;
 
-&lt;p&gt;Tải challenge: &lt;a href=&quot;https://drive.google.com/file/d/12t2NfEJISC_TSI0FFjqiHDEQmlGEH195/view?usp=drive_link&quot;&gt;Sổ đăng ký&lt;/a&gt; (pass: cookiehanhoan)&lt;/p&gt;
+&lt;p&gt;Tải challenge: &lt;a href=&quot;https://drive.google.com/file/d/12t2NfEJISC_TSI0FFjqiHDEQmlGEH195&quot;&gt;Basic Operator&lt;/a&gt; (pass: cookiehanhoan)&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 
@@ -552,15 +589,15 @@ debug055:027600B4 cmp     eax, 29CBh
 Để giải quyết bài toán này, chúng ta có hai cách để giải:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Brute-force từng block một như đã phân tích ở trên&lt;/li&gt;
-  &lt;li&gt;Dựng ngược lại các hàm đã cho để đi tìm flag.&lt;/li&gt;
+  &lt;li&gt;Dựng ngược lại các hàm đã cho để đi tìm flag&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Cách giải 1.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Nhận thấy rằng &lt;strong&gt;Cipher&lt;/strong&gt; có 12 block, với 4 chữ cái đầu tiên của flag sẽ là &lt;strong&gt;CHH{&lt;/strong&gt;. Quan sát kết quả mã hóa block đầu tiên này và so sánh với &lt;strong&gt;Cipher&lt;/strong&gt;, ta khẳng định được:&lt;/p&gt;
+&lt;p&gt;Nhận thấy rằng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cipher&lt;/code&gt; có 12 block, với 4 chữ cái đầu tiên của flag sẽ là &lt;strong&gt;CHH{&lt;/strong&gt;. Quan sát kết quả mã hóa block đầu tiên này và so sánh với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cipher&lt;/code&gt;, ta khẳng định được:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Block đầu tiên của flag là &lt;strong&gt;CHH{&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Block cuối cùng của flag có 1, 2, hoặc 3 kí tự. Vậy các trường hợp có thể xảy ra là:
+  &lt;li&gt;Block cuối cùng của flag có 1, 2 hoặc 3 kí tự. Vậy các trường hợp có thể xảy ra là:
     &lt;ul&gt;
       &lt;li&gt;b’}\x03\x03\x03’&lt;/li&gt;
       &lt;li&gt;b’x}\x02\x02’&lt;/li&gt;
