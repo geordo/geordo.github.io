@@ -6,13 +6,56 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Aug 2023 15:51:09 +0700</pubDate>
-    <lastBuildDate>Sun, 06 Aug 2023 15:51:09 +0700</lastBuildDate>
+    <pubDate>Wed, 20 Sep 2023 13:29:14 +0700</pubDate>
+    <lastBuildDate>Wed, 20 Sep 2023 13:29:14 +0700</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
         <title>Cookie Arena CTF 2023</title>
-        <description>&lt;h2 id=&quot;0x00-giới-thiệu&quot;&gt;0x00 Giới thiệu&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#0x00-giới-thiệu&quot;&gt;0x00 Giới thiệu&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#0x01-stenography&quot;&gt;0x01 Stenography&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#cutie-k1tty&quot;&gt;Cutie K1tty&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#0x02-mobile&quot;&gt;0x02 Mobile&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#cat-me&quot;&gt;Cat Me&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#pinned-cookie&quot;&gt;Pinned Cookie&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#0x03-reverse&quot;&gt;0x03 Reverse&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#pyreverse&quot;&gt;Pyreverse&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#jump&quot;&gt;Jump&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#rev1&quot;&gt;Rev1&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#0x04-forensic&quot;&gt;0x04 Forensic&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#sổ-đăng-ký&quot;&gt;Sổ đăng ký&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#tin-học-văn-phòng-cơ-bản&quot;&gt;Tin học văn phòng cơ bản&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#0x05-web&quot;&gt;0x05 Web&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#magic-login&quot;&gt;Magic Login&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#magic-login-harder&quot;&gt;Magic Login Harder&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#be-positive&quot;&gt;Be Positive&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#slow-down&quot;&gt;Slow Down&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#0x06-crypto&quot;&gt;0x06 Crypto&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#basic-operator&quot;&gt;Basic Operator&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;0x00-giới-thiệu&quot;&gt;0x00 Giới thiệu&lt;/h2&gt;
 &lt;p&gt;Hai ngày cuối tuần, mình cùng một số anh em trong câu lạc bộ chơi giải &lt;a href=&quot;https://battle.cookiearena.org/arenas/cookie-arena-ctf-season-2&quot;&gt;Cookie Arena CTF 2023&lt;/a&gt;. Cuộc thi được diễn ra liên tục trong 48 giờ. Chắc do bị DDOS bất ngờ, đáng lẽ cuộc thi được bắt đầu từ 21h nhưng phải hoãn lại. Sang tới tận ngày hôm sau chúng mình mới có thể chơi bình thường.&lt;/p&gt;
 
 &lt;p&gt;Đây là lần đầu tiên mình tham gia trọn vẹn một kỳ thi CTF online. Cuộc thi diễn ra theo hình thức cá nhân, nhưng bọn mình lại chơi cùng nhau. Kết quả cả đội đứng thứ 6 chung cuộc nhưng sẽ không viết writeup và nhận quà từ ban tổ chức do vi phạm quy định hehe.&lt;/p&gt;
@@ -160,7 +203,7 @@ f1n4lly.txt
 
 &lt;p&gt;&lt;img src=&quot;/images/cookiehanhoan2023/image-7.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Sau khi thu được file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pyreverser.pyc&lt;/code&gt;, mình tiếp tục lên https://ctfever.uniiem.com để decompile file &lt;strong&gt;.pyc&lt;/strong&gt; thành &lt;strong&gt;.py&lt;/strong&gt; ban đầu.&lt;/p&gt;
+&lt;p&gt;Sau khi thu được file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pyreverser.pyc&lt;/code&gt;, mình tiếp tục lên &lt;a href=&quot;https://ctfever.uniiem.com&quot;&gt;CTFever&lt;/a&gt; để decompile file &lt;strong&gt;.pyc&lt;/strong&gt; thành &lt;strong&gt;.py&lt;/strong&gt; ban đầu.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Decompiled on CTFever Premium
 # Decompile engine: Decompyle++ (pycdc)
@@ -504,7 +547,7 @@ cp /flag.txt /flag$FLAG.txt
 
 &lt;p&gt;Từ tên bài toán và là bài web dễ nhất trong đề. Khả năng cao bài toán sẽ có lỗ hổng chuyển tiền âm.&lt;/p&gt;
 
-&lt;p&gt;Vào tab &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Transfer&lt;/code&gt;, chỉnh sửa giá trị &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;min = -99999&lt;/code&gt; rồi chuyển tiền cho &lt;strong&gt;Bob&lt;/strong&gt; với số tiền là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-2000&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Vào tab &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Transfer&lt;/code&gt;, chỉnh sửa giá trị &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;min = -99999&lt;/code&gt; rồi chuyển tiền cho Bob với số tiền là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-2000&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/cookiehanhoan2023/image-17.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
 
@@ -532,13 +575,13 @@ cp /flag.txt /flag$FLAG.txt
 
 &lt;p&gt;Nhận thấy, phản hồi chuyển tiền thành công về khá lâu, cộng thêm tên bài toán là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Slow Down&lt;/code&gt;. Từ đấy, mình nghĩ hướng xử lý bài toán liên quan tới &lt;strong&gt;Race Condition&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Sử dụng 2 trình duyệt khác nhau, cùng login với tài khoản &lt;strong&gt;Alice&lt;/strong&gt; và chuyển tiền đến &lt;strong&gt;Bob&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Sử dụng 2 trình duyệt khác nhau, cùng login với tài khoản Alice và chuyển tiền đến Bob.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/cookiehanhoan2023/image-19.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Flag: CHH{ea5y_RaCe_CONd17iOn_e84d1b098a499d032afe243ab64dd49a}&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;0x05-crypto&quot;&gt;0x05 Crypto&lt;/h2&gt;
+&lt;h2 id=&quot;0x06-crypto&quot;&gt;0x06 Crypto&lt;/h2&gt;
 
 &lt;h3 id=&quot;basic-operator&quot;&gt;Basic Operator&lt;/h3&gt;
 
@@ -594,9 +637,9 @@ cp /flag.txt /flag$FLAG.txt
 
 &lt;p&gt;&lt;strong&gt;Cách giải 1.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Nhận thấy rằng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cipher&lt;/code&gt; có 12 block, với 4 chữ cái đầu tiên của flag sẽ là &lt;strong&gt;CHH{&lt;/strong&gt;. Quan sát kết quả mã hóa block đầu tiên này và so sánh với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cipher&lt;/code&gt;, ta khẳng định được:&lt;/p&gt;
+&lt;p&gt;Nhận thấy rằng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cipher&lt;/code&gt; có 12 block, với 4 chữ cái đầu tiên của flag sẽ là &lt;strong&gt;“CHH{“&lt;/strong&gt;. Quan sát kết quả mã hóa block đầu tiên này và so sánh với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cipher&lt;/code&gt;, ta khẳng định được:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Block đầu tiên của flag là &lt;strong&gt;CHH{&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Block đầu tiên của flag là &lt;strong&gt;“CHH{“&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Block cuối cùng của flag có 1, 2 hoặc 3 kí tự. Vậy các trường hợp có thể xảy ra là:
     &lt;ul&gt;
       &lt;li&gt;b’}\x03\x03\x03’&lt;/li&gt;

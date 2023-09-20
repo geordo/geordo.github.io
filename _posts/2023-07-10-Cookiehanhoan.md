@@ -4,6 +4,29 @@ title:  Cookie Arena CTF 2023
 comments: true
 ---
 
+## Table of Contents 
+
+- [0x00 Giới thiệu](#0x00-giới-thiệu)
+- [0x01 Stenography](#0x01-stenography)
+    * [Cutie K1tty](#cutie-k1tty)
+- [0x02 Mobile](#0x02-mobile)
+    * [Cat Me](#cat-me)
+    * [Pinned Cookie](#pinned-cookie)
+- [0x03 Reverse](#0x03-reverse)
+    * [Pyreverse](#pyreverse)
+    * [Jump](#jump)
+    * [Rev1](#rev1)
+- [0x04 Forensic](#0x04-forensic)
+    * [Sổ đăng ký](#sổ-đăng-ký)
+    * [Tin học văn phòng cơ bản](#tin-học-văn-phòng-cơ-bản)
+- [0x05 Web](#0x05-web)
+    * [Magic Login](#magic-login)
+    * [Magic Login Harder](#magic-login-harder)
+    * [Be Positive](#be-positive)
+    * [Slow Down](#slow-down)
+- [0x06 Crypto](#0x06-crypto)
+    * [Basic Operator](#basic-operator)
+
 ## 0x00 Giới thiệu
 Hai ngày cuối tuần, mình cùng một số anh em trong câu lạc bộ chơi giải [Cookie Arena CTF 2023](https://battle.cookiearena.org/arenas/cookie-arena-ctf-season-2). Cuộc thi được diễn ra liên tục trong 48 giờ. Chắc do bị DDOS bất ngờ, đáng lẽ cuộc thi được bắt đầu từ 21h nhưng phải hoãn lại. Sang tới tận ngày hôm sau chúng mình mới có thể chơi bình thường. 
 
@@ -541,7 +564,7 @@ Sử dụng 2 trình duyệt khác nhau, cùng login với tài khoản Alice v�
 
 **Flag: CHH{ea5y_RaCe_CONd17iOn_e84d1b098a499d032afe243ab64dd49a}**
 
-## 0x05 Crypto 
+## 0x06 Crypto 
 
 ### Basic Operator
 
