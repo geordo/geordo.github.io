@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>George Do</title>
-    <description>Math and Computer Science
+    <description>Just a small boy with big fat dream 
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Sep 2023 13:29:14 +0700</pubDate>
-    <lastBuildDate>Wed, 20 Sep 2023 13:29:14 +0700</lastBuildDate>
+    <pubDate>Thu, 28 Sep 2023 20:01:33 +0700</pubDate>
+    <lastBuildDate>Thu, 28 Sep 2023 20:01:33 +0700</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
