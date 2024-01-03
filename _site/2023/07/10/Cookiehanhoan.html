@@ -278,7 +278,7 @@ f1n4lly.txt
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">base64</span>
 
-<span class="n">flag</span> <span class="o">=</span> <span class="s">"Q0hIe00wcmVfMW43RVIzU1RJTjlfN2gxTjZfMU5fbG9nY2F0fQ=="</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Q0hIe00wcmVfMW43RVIzU1RJTjlfN2gxTjZfMU5fbG9nY2F0fQ==</span><span class="sh">"</span>
 <span class="n">flag</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
 </code></pre></div></div>
@@ -319,12 +319,12 @@ f1n4lly.txt
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">base64</span> 
 
-<span class="n">key</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'sTroN6PaSswORD'</span>
-<span class="n">base64_str</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'MBw6FDdZBT4wRzkQMB0jYEc8EUUDLQwjPiE8LR0TDw=='</span>
+<span class="n">key</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">sTroN6PaSswORD</span><span class="sh">'</span>
+<span class="n">base64_str</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">MBw6FDdZBT4wRzkQMB0jYEc8EUUDLQwjPiE8LR0TDw==</span><span class="sh">'</span>
 
 <span class="n">bytesFlag</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="n">base64_str</span><span class="p">)</span>
 
-<span class="n">flag</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="sh">""</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">bytesFlag</span><span class="p">)):</span> 
     <span class="n">flag</span> <span class="o">+=</span> <span class="nf">chr</span><span class="p">(</span><span class="n">bytesFlag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">^</span> <span class="n">key</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nf">len</span><span class="p">(</span><span class="n">key</span><span class="p">)])</span>
 
@@ -376,7 +376,7 @@ f1n4lly.txt
 
 
 <span class="k">def</span> <span class="nf">scramble_flag</span><span class="p">(</span><span class="n">flag</span><span class="p">):</span>
-    <span class="n">scrambled</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="n">scrambled</span> <span class="o">=</span> <span class="sh">''</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">flag</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">scrambled</span> <span class="o">+=</span> <span class="nf">chr</span><span class="p">(</span><span class="nf">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -386,17 +386,17 @@ f1n4lly.txt
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">secret_flag</span> <span class="o">=</span> <span class="nf">scramble_flag</span><span class="p">(</span><span class="nf">reverse_string</span><span class="p">(</span><span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="s">'Q0hIe3B5dGhvbjJFeGlfUmV2ZXJzZV9FTmdpbmVyaW5nfQ=='</span><span class="p">)).</span><span class="nf">decode</span><span class="p">())</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">'Welcome to PyReverser!'</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">'Please enter a word or phrase:'</span><span class="p">)</span>
+    <span class="n">secret_flag</span> <span class="o">=</span> <span class="nf">scramble_flag</span><span class="p">(</span><span class="nf">reverse_string</span><span class="p">(</span><span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="sh">'</span><span class="s">Q0hIe3B5dGhvbjJFeGlfUmV2ZXJzZV9FTmdpbmVyaW5nfQ==</span><span class="sh">'</span><span class="p">)).</span><span class="nf">decode</span><span class="p">())</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Welcome to PyReverser!</span><span class="sh">'</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Please enter a word or phrase:</span><span class="sh">'</span><span class="p">)</span>
     <span class="n">user_input</span> <span class="o">=</span> <span class="nf">input</span><span class="p">()</span>
     <span class="n">generated_value</span> <span class="o">=</span> <span class="nf">scramble_flag</span><span class="p">(</span><span class="nf">reverse_string</span><span class="p">(</span><span class="n">user_input</span><span class="p">.</span><span class="nf">upper</span><span class="p">()))</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">'Generated value:'</span><span class="p">,</span> <span class="n">generated_value</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">'Can you find the hidden flag?'</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Generated value:</span><span class="sh">'</span><span class="p">,</span> <span class="n">generated_value</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Can you find the hidden flag?</span><span class="sh">'</span><span class="p">)</span>
     <span class="n">reversed_flag</span> <span class="o">=</span> <span class="nf">reverse_string</span><span class="p">(</span><span class="n">secret_flag</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">'Reversed flag:'</span><span class="p">,</span> <span class="n">reversed_flag</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Reversed flag:</span><span class="sh">'</span><span class="p">,</span> <span class="n">reversed_flag</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
     <span class="nf">main</span><span class="p">()</span>
     <span class="c1"># return None
 </span></code></pre></div></div>
@@ -526,7 +526,7 @@ debug055:027600B4 cmp     eax, 29CBh
 
 <span class="n">solver</span> <span class="o">=</span> <span class="nc">Solver</span><span class="p">()</span>
 
-<span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="nc">BitVec</span><span class="p">(</span><span class="sa">f</span><span class="s">'x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">'</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">14</span><span class="p">)]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="nc">BitVec</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="sh">'</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">14</span><span class="p">)]</span>
 
 <span class="n">equations</span> <span class="o">=</span> <span class="p">[</span>
     <span class="mh">0x6E</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x1C3</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x348</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x1F8</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x357</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x46</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x16F</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x2FE</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x17A</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x15A</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x326</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x190</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x129</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2ED</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">==</span> <span class="mh">0x29CB</span><span class="p">,</span>
@@ -551,11 +551,11 @@ debug055:027600B4 cmp     eax, 29CBh
 <span class="k">if</span> <span class="n">solver</span><span class="p">.</span><span class="nf">check</span><span class="p">()</span> <span class="o">==</span> <span class="n">sat</span><span class="p">:</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">solver</span><span class="p">.</span><span class="nf">model</span><span class="p">()</span>
     <span class="n">solution</span> <span class="o">=</span> <span class="p">[</span><span class="n">model</span><span class="p">.</span><span class="nf">evaluate</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="nf">as_long</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="p">]</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">solution</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="si">{</span><span class="n">solution</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">"No solution"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">No solution</span><span class="sh">"</span><span class="p">)</span>
     
-<span class="n">flag</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="sh">""</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">solution</span><span class="p">:</span>
     <span class="n">flag</span> <span class="o">+=</span> <span class="nf">chr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
@@ -719,8 +719,8 @@ cp /flag.txt /flag$FLAG.txt
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">hashlib</span>
 <span class="kn">import</span> <span class="n">base64</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="s">'4dc968ff0ee35c209572d4777b721587d36fa7b21bdc56b74a3dc0783e7b9518afbfa200a8284bf36e8e4b55b35f427593d849676da0d1555d8360fb5f07fea2'</span>
-<span class="n">y</span> <span class="o">=</span> <span class="s">'4dc968ff0ee35c209572d4777b721587d36fa7b21bdc56b74a3dc0783e7b9518afbfa202a8284bf36e8e4b55b35f427593d849676da0d1d55d8360fb5f07fea2'</span>
+<span class="n">x</span> <span class="o">=</span> <span class="sh">'</span><span class="s">4dc968ff0ee35c209572d4777b721587d36fa7b21bdc56b74a3dc0783e7b9518afbfa200a8284bf36e8e4b55b35f427593d849676da0d1555d8360fb5f07fea2</span><span class="sh">'</span>
+<span class="n">y</span> <span class="o">=</span> <span class="sh">'</span><span class="s">4dc968ff0ee35c209572d4777b721587d36fa7b21bdc56b74a3dc0783e7b9518afbfa202a8284bf36e8e4b55b35f427593d849676da0d1d55d8360fb5f07fea2</span><span class="sh">'</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">.</span><span class="nf">fromhex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">.</span><span class="nf">fromhex</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
@@ -832,7 +832,7 @@ cp /flag.txt /flag$FLAG.txt
 	<span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="nf">ljust</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="nf">bytes</span><span class="p">([</span><span class="n">block_size</span><span class="o">-</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">%</span><span class="n">block_size</span><span class="p">)]))</span>
 
 <span class="k">def</span> <span class="nf">split_block</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">block_size</span><span class="p">):</span>
-	<span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="nf">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">],</span><span class="s">'little'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">block_size</span><span class="p">))</span>
+	<span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="nf">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">],</span><span class="sh">'</span><span class="s">little</span><span class="sh">'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">block_size</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">plus_func</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">shift</span><span class="p">):</span>
 	<span class="nf">return </span><span class="p">(</span><span class="n">data</span><span class="o">+</span><span class="n">shift</span><span class="p">)</span><span class="o">&amp;</span><span class="mh">0xffffffff</span>
@@ -852,10 +852,10 @@ cp /flag.txt /flag$FLAG.txt
 <span class="k">def</span> <span class="nf">ecb_mode</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 	<span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="nf">pow_func</span><span class="p">(</span><span class="nf">exp_func</span><span class="p">(</span><span class="nf">xor_shift_right_func</span><span class="p">(</span><span class="nf">mul_func</span><span class="p">(</span><span class="nf">plus_func</span><span class="p">(</span><span class="n">block</span><span class="p">,</span><span class="mi">3442055609</span><span class="p">),</span><span class="mi">2898124289</span><span class="p">),</span><span class="mi">1</span><span class="p">),</span><span class="n">e</span><span class="p">,</span><span class="n">p</span><span class="p">),</span><span class="n">e</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="nf">split_block</span><span class="p">(</span><span class="nf">padding_pkcs7</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
 
-<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
 	<span class="n">p</span> <span class="o">=</span> <span class="mi">1341161101353773850779</span>
 	<span class="n">e</span> <span class="o">=</span> <span class="mi">2</span>
-	<span class="n">mess</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'CHH{CENSORED}'</span>
+	<span class="n">mess</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">CHH{CENSORED}</span><span class="sh">'</span>
 	<span class="n">cipher_flag</span> <span class="o">=</span> <span class="nf">ecb_mode</span><span class="p">(</span><span class="n">mess</span><span class="p">)</span>
 	<span class="nf">print</span><span class="p">(</span><span class="n">cipher_flag</span><span class="p">)</span>
 </code></pre></div></div>
@@ -889,7 +889,7 @@ cp /flag.txt /flag$FLAG.txt
 	<span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="nf">ljust</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="nf">bytes</span><span class="p">([</span><span class="n">block_size</span><span class="o">-</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">%</span><span class="n">block_size</span><span class="p">)]))</span>
 
 <span class="k">def</span> <span class="nf">split_block</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">block_size</span><span class="p">):</span>
-	<span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="nf">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">],</span><span class="s">'little'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">block_size</span><span class="p">))</span>
+	<span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="nf">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">],</span><span class="sh">'</span><span class="s">little</span><span class="sh">'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">block_size</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">plus_func</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">shift</span><span class="p">):</span>
 	<span class="nf">return </span><span class="p">(</span><span class="n">data</span><span class="o">+</span><span class="n">shift</span><span class="p">)</span><span class="o">&amp;</span><span class="mh">0xffffffff</span>
@@ -930,16 +930,16 @@ cp /flag.txt /flag$FLAG.txt
 </span>
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">tqdm</span><span class="p">(</span><span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">printable</span><span class="p">))):</span>
             <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">printable</span><span class="p">)):</span>
-                <span class="n">flag</span> <span class="o">=</span> <span class="p">(</span><span class="n">printable</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="n">printable</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="s">'}'</span><span class="p">).</span><span class="nf">encode</span><span class="p">()</span>
+                <span class="n">flag</span> <span class="o">=</span> <span class="p">(</span><span class="n">printable</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="n">printable</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="sh">'</span><span class="s">}</span><span class="sh">'</span><span class="p">).</span><span class="nf">encode</span><span class="p">()</span>
                 <span class="k">if</span> <span class="nf">ecb_mode</span><span class="p">(</span><span class="n">flag</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Cipher</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span> 
                     <span class="nf">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span> 
                     <span class="nf">exit</span><span class="p">()</span>
-            <span class="n">flag</span> <span class="o">=</span> <span class="p">(</span><span class="n">printable</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="s">'}'</span><span class="p">).</span><span class="nf">encode</span><span class="p">()</span>
+            <span class="n">flag</span> <span class="o">=</span> <span class="p">(</span><span class="n">printable</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="sh">'</span><span class="s">}</span><span class="sh">'</span><span class="p">).</span><span class="nf">encode</span><span class="p">()</span>
             <span class="k">if</span> <span class="nf">ecb_mode</span><span class="p">(</span><span class="n">flag</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Cipher</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span> 
                 <span class="nf">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span> 
                 <span class="nf">exit</span><span class="p">()</span>
             
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
         <span class="nf">brute</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></div>
@@ -1069,7 +1069,7 @@ f1n4lly.txt
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">base64</span>
 
-<span class="n">flag</span> <span class="o">=</span> <span class="s">"Q0hIe00wcmVfMW43RVIzU1RJTjlfN2gxTjZfMU5fbG9nY2F0fQ=="</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Q0hIe00wcmVfMW43RVIzU1RJTjlfN2gxTjZfMU5fbG9nY2F0fQ==</span><span class="sh">"</span>
 <span class="n">flag</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
 </code></pre></div></div>
@@ -1104,12 +1104,12 @@ f1n4lly.txt
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">base64</span> 
 
-<span class="n">key</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'sTroN6PaSswORD'</span>
-<span class="n">base64_str</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'MBw6FDdZBT4wRzkQMB0jYEc8EUUDLQwjPiE8LR0TDw=='</span>
+<span class="n">key</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">sTroN6PaSswORD</span><span class="sh">'</span>
+<span class="n">base64_str</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">MBw6FDdZBT4wRzkQMB0jYEc8EUUDLQwjPiE8LR0TDw==</span><span class="sh">'</span>
 
 <span class="n">bytesFlag</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="n">base64_str</span><span class="p">)</span>
 
-<span class="n">flag</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="sh">""</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">bytesFlag</span><span class="p">)):</span> 
     <span class="n">flag</span> <span class="o">+=</span> <span class="nf">chr</span><span class="p">(</span><span class="n">bytesFlag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">^</span> <span class="n">key</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nf">len</span><span class="p">(</span><span class="n">key</span><span class="p">)])</span>
 
@@ -1149,7 +1149,7 @@ f1n4lly.txt
 
 
 <span class="k">def</span> <span class="nf">scramble_flag</span><span class="p">(</span><span class="n">flag</span><span class="p">):</span>
-    <span class="n">scrambled</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="n">scrambled</span> <span class="o">=</span> <span class="sh">''</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">flag</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">scrambled</span> <span class="o">+=</span> <span class="nf">chr</span><span class="p">(</span><span class="nf">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -1159,17 +1159,17 @@ f1n4lly.txt
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">secret_flag</span> <span class="o">=</span> <span class="nf">scramble_flag</span><span class="p">(</span><span class="nf">reverse_string</span><span class="p">(</span><span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="s">'Q0hIe3B5dGhvbjJFeGlfUmV2ZXJzZV9FTmdpbmVyaW5nfQ=='</span><span class="p">)).</span><span class="nf">decode</span><span class="p">())</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">'Welcome to PyReverser!'</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">'Please enter a word or phrase:'</span><span class="p">)</span>
+    <span class="n">secret_flag</span> <span class="o">=</span> <span class="nf">scramble_flag</span><span class="p">(</span><span class="nf">reverse_string</span><span class="p">(</span><span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="sh">'</span><span class="s">Q0hIe3B5dGhvbjJFeGlfUmV2ZXJzZV9FTmdpbmVyaW5nfQ==</span><span class="sh">'</span><span class="p">)).</span><span class="nf">decode</span><span class="p">())</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Welcome to PyReverser!</span><span class="sh">'</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Please enter a word or phrase:</span><span class="sh">'</span><span class="p">)</span>
     <span class="n">user_input</span> <span class="o">=</span> <span class="nf">input</span><span class="p">()</span>
     <span class="n">generated_value</span> <span class="o">=</span> <span class="nf">scramble_flag</span><span class="p">(</span><span class="nf">reverse_string</span><span class="p">(</span><span class="n">user_input</span><span class="p">.</span><span class="nf">upper</span><span class="p">()))</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">'Generated value:'</span><span class="p">,</span> <span class="n">generated_value</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">'Can you find the hidden flag?'</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Generated value:</span><span class="sh">'</span><span class="p">,</span> <span class="n">generated_value</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Can you find the hidden flag?</span><span class="sh">'</span><span class="p">)</span>
     <span class="n">reversed_flag</span> <span class="o">=</span> <span class="nf">reverse_string</span><span class="p">(</span><span class="n">secret_flag</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">'Reversed flag:'</span><span class="p">,</span> <span class="n">reversed_flag</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Reversed flag:</span><span class="sh">'</span><span class="p">,</span> <span class="n">reversed_flag</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
     <span class="nf">main</span><span class="p">()</span>
     <span class="c1"># return None
 </span></code></pre></div></div>
@@ -1287,7 +1287,7 @@ debug055:027600B4 cmp     eax, 29CBh
 
 <span class="n">solver</span> <span class="o">=</span> <span class="nc">Solver</span><span class="p">()</span>
 
-<span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="nc">BitVec</span><span class="p">(</span><span class="sa">f</span><span class="s">'x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">'</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">14</span><span class="p">)]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="nc">BitVec</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="sh">'</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">14</span><span class="p">)]</span>
 
 <span class="n">equations</span> <span class="o">=</span> <span class="p">[</span>
     <span class="mh">0x6E</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x1C3</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x348</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x1F8</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x357</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x46</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x16F</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x2FE</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x17A</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x15A</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x326</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x190</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x129</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2ED</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">==</span> <span class="mh">0x29CB</span><span class="p">,</span>
@@ -1312,11 +1312,11 @@ debug055:027600B4 cmp     eax, 29CBh
 <span class="k">if</span> <span class="n">solver</span><span class="p">.</span><span class="nf">check</span><span class="p">()</span> <span class="o">==</span> <span class="n">sat</span><span class="p">:</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">solver</span><span class="p">.</span><span class="nf">model</span><span class="p">()</span>
     <span class="n">solution</span> <span class="o">=</span> <span class="p">[</span><span class="n">model</span><span class="p">.</span><span class="nf">evaluate</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="nf">as_long</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="p">]</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">solution</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="si">{</span><span class="n">solution</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">"No solution"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">No solution</span><span class="sh">"</span><span class="p">)</span>
     
-<span class="n">flag</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="sh">""</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">solution</span><span class="p">:</span>
     <span class="n">flag</span> <span class="o">+=</span> <span class="nf">chr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
@@ -1444,8 +1444,8 @@ cp /flag.txt /flag$FLAG.txt
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">hashlib</span>
 <span class="kn">import</span> <span class="n">base64</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="s">'4dc968ff0ee35c209572d4777b721587d36fa7b21bdc56b74a3dc0783e7b9518afbfa200a8284bf36e8e4b55b35f427593d849676da0d1555d8360fb5f07fea2'</span>
-<span class="n">y</span> <span class="o">=</span> <span class="s">'4dc968ff0ee35c209572d4777b721587d36fa7b21bdc56b74a3dc0783e7b9518afbfa202a8284bf36e8e4b55b35f427593d849676da0d1d55d8360fb5f07fea2'</span>
+<span class="n">x</span> <span class="o">=</span> <span class="sh">'</span><span class="s">4dc968ff0ee35c209572d4777b721587d36fa7b21bdc56b74a3dc0783e7b9518afbfa200a8284bf36e8e4b55b35f427593d849676da0d1555d8360fb5f07fea2</span><span class="sh">'</span>
+<span class="n">y</span> <span class="o">=</span> <span class="sh">'</span><span class="s">4dc968ff0ee35c209572d4777b721587d36fa7b21bdc56b74a3dc0783e7b9518afbfa202a8284bf36e8e4b55b35f427593d849676da0d1d55d8360fb5f07fea2</span><span class="sh">'</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">.</span><span class="nf">fromhex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">.</span><span class="nf">fromhex</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
@@ -1533,7 +1533,7 @@ cp /flag.txt /flag$FLAG.txt
 	<span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="nf">ljust</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="nf">bytes</span><span class="p">([</span><span class="n">block_size</span><span class="o">-</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">%</span><span class="n">block_size</span><span class="p">)]))</span>
 
 <span class="k">def</span> <span class="nf">split_block</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">block_size</span><span class="p">):</span>
-	<span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="nf">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">],</span><span class="s">'little'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">block_size</span><span class="p">))</span>
+	<span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="nf">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">],</span><span class="sh">'</span><span class="s">little</span><span class="sh">'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">block_size</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">plus_func</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">shift</span><span class="p">):</span>
 	<span class="nf">return </span><span class="p">(</span><span class="n">data</span><span class="o">+</span><span class="n">shift</span><span class="p">)</span><span class="o">&amp;</span><span class="mh">0xffffffff</span>
@@ -1553,10 +1553,10 @@ cp /flag.txt /flag$FLAG.txt
 <span class="k">def</span> <span class="nf">ecb_mode</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 	<span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="nf">pow_func</span><span class="p">(</span><span class="nf">exp_func</span><span class="p">(</span><span class="nf">xor_shift_right_func</span><span class="p">(</span><span class="nf">mul_func</span><span class="p">(</span><span class="nf">plus_func</span><span class="p">(</span><span class="n">block</span><span class="p">,</span><span class="mi">3442055609</span><span class="p">),</span><span class="mi">2898124289</span><span class="p">),</span><span class="mi">1</span><span class="p">),</span><span class="n">e</span><span class="p">,</span><span class="n">p</span><span class="p">),</span><span class="n">e</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="nf">split_block</span><span class="p">(</span><span class="nf">padding_pkcs7</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
 
-<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
 	<span class="n">p</span> <span class="o">=</span> <span class="mi">1341161101353773850779</span>
 	<span class="n">e</span> <span class="o">=</span> <span class="mi">2</span>
-	<span class="n">mess</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'CHH{CENSORED}'</span>
+	<span class="n">mess</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">CHH{CENSORED}</span><span class="sh">'</span>
 	<span class="n">cipher_flag</span> <span class="o">=</span> <span class="nf">ecb_mode</span><span class="p">(</span><span class="n">mess</span><span class="p">)</span>
 	<span class="nf">print</span><span class="p">(</span><span class="n">cipher_flag</span><span class="p">)</span>
 </code></pre></div></div>
@@ -1590,7 +1590,7 @@ cp /flag.txt /flag$FLAG.txt
 	<span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="nf">ljust</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="nf">bytes</span><span class="p">([</span><span class="n">block_size</span><span class="o">-</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">%</span><span class="n">block_size</span><span class="p">)]))</span>
 
 <span class="k">def</span> <span class="nf">split_block</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">block_size</span><span class="p">):</span>
-	<span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="nf">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">],</span><span class="s">'little'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">block_size</span><span class="p">))</span>
+	<span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="nf">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">],</span><span class="sh">'</span><span class="s">little</span><span class="sh">'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">block_size</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">plus_func</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">shift</span><span class="p">):</span>
 	<span class="nf">return </span><span class="p">(</span><span class="n">data</span><span class="o">+</span><span class="n">shift</span><span class="p">)</span><span class="o">&amp;</span><span class="mh">0xffffffff</span>
@@ -1631,16 +1631,16 @@ cp /flag.txt /flag$FLAG.txt
 </span>
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">tqdm</span><span class="p">(</span><span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">printable</span><span class="p">))):</span>
             <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">printable</span><span class="p">)):</span>
-                <span class="n">flag</span> <span class="o">=</span> <span class="p">(</span><span class="n">printable</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="n">printable</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="s">'}'</span><span class="p">).</span><span class="nf">encode</span><span class="p">()</span>
+                <span class="n">flag</span> <span class="o">=</span> <span class="p">(</span><span class="n">printable</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="n">printable</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="sh">'</span><span class="s">}</span><span class="sh">'</span><span class="p">).</span><span class="nf">encode</span><span class="p">()</span>
                 <span class="k">if</span> <span class="nf">ecb_mode</span><span class="p">(</span><span class="n">flag</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Cipher</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span> 
                     <span class="nf">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span> 
                     <span class="nf">exit</span><span class="p">()</span>
-            <span class="n">flag</span> <span class="o">=</span> <span class="p">(</span><span class="n">printable</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="s">'}'</span><span class="p">).</span><span class="nf">encode</span><span class="p">()</span>
+            <span class="n">flag</span> <span class="o">=</span> <span class="p">(</span><span class="n">printable</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="sh">'</span><span class="s">}</span><span class="sh">'</span><span class="p">).</span><span class="nf">encode</span><span class="p">()</span>
             <span class="k">if</span> <span class="nf">ecb_mode</span><span class="p">(</span><span class="n">flag</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Cipher</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span> 
                 <span class="nf">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span> 
                 <span class="nf">exit</span><span class="p">()</span>
             
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
         <span class="nf">brute</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></div>
@@ -1688,11 +1688,21 @@ cp /flag.txt /flag$FLAG.txt
 
           </li>
           
+
+          
+          <li>
+            <a href="https://www.linkedin.com/in/geordo">
+  <span class="icon icon--linkedin"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51v1.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/></svg></span>
+  <span class="label">geordo</span>
+</a>
+
+          </li>
+          
         </ul>
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>Just a small boy with big fat dream 
+        <p>Just a small boy with big fat dream 💭
 </p>
       </div>
     </div>

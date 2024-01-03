@@ -21,11 +21,11 @@ layout: default
 
 </div> -->
 
-<img style="float: right; max-width: 33%; border-radius: 50%; margin: 0 0 1em 2em; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;" src="/images/george.png">
+<img style="float: right; width: 250px; height: 250px; border-radius: 999px; margin: 0 0 1em 2em; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;" src="/images/geo.jpg">
 
-Xin chào các bạn, tớ là George Do, sinh viên năm hai chuyên ngành CNTT. Mình sinh ra và lớn lên tại mảnh đất miền Trung đầy nắng và gió, Nghệ An.\
+Xin chào các bạn, mình là George Do, sinh viên năm hai chuyên ngành CNTT. Mình sinh ra và lớn lên tại mảnh đất miền Trung đầy nắng và gió, Nghệ An.\
 Hiện tại, mình đang sinh sống và học tập tại Hà Nội.
 
-Blog này là nơi mình viết về những kiến thức, chủ đề liên quan tới Toán và Khoa học Máy tính mà mình cảm thấy thú vị. Thời gian rảnh rỗi, mình thường hay đọc sách, chơi CTF với team [TLU.CyanWater💦](https://ctftime.org/team/262851). 
+Blog này là nơi mình viết về những kiến thức về các chủ đề liên quan tới Toán, CTF, hay một vài lĩnh vực mà mình cảm thấy thú vị. Thời gian rảnh rỗi, mình thường hay đọc sách, chơi CTF với team [Double K](https://ctftime.org/team/278424). 
 
 Nếu các bạn có bất kỳ thắc mắc hay góp ý nào về bài viết, vui lòng email cho mình tại địa chỉ *"contact.georgedo@gmail.com"*. Mình xin cảm ơn các bạn rất nhiều.
