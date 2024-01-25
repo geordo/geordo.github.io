@@ -13,16 +13,8 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://geordo.github.io" # the base hostname & protocol for your site
 twitter_username: georgedo_twit
-# platform: linkedin, user_url: "https://www.linkedin.com/in/geordo"
 github_username: geordo
 linkedin_username: geordo
-
-# Build settings
- 
-#redcarpet
-#markdown: rdiscount
-#rdiscount:
- #   extensions: [ "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
 
 theme: minima
 

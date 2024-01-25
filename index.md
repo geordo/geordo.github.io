@@ -21,7 +21,7 @@ layout: default
 
 </div> -->
 
-<img style="float: right; width: 250px; height: 250px; border-radius: 999px; margin: 0 0 1em 2em; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;" src="/images/geo.jpg">
+<img style="float: right; width: 250px; height: 250px; border-radius: 50%; margin: 0 0 1em 2em; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;" src="/images/geo2.jpg">
 
 Xin chào các bạn, mình là George Do, sinh viên năm hai chuyên ngành CNTT. Mình sinh ra và lớn lên tại mảnh đất miền Trung đầy nắng và gió, Nghệ An.\
 Hiện tại, mình đang sinh sống và học tập tại Hà Nội.
