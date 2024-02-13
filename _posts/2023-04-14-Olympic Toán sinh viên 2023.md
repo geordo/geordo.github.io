@@ -4,21 +4,16 @@ title:  "Olympic Toán sinh viên 2023"
 ---
 
 Tôi là sinh viên năm nhất của Đại học Thủy Lợi tham gia kỳ thi Olympic Toán học năm 2023 tại thành phố Huế  đầy thơ mộng. Đoàn Hà Nội chúng tôi gồm 10 thành viên, chia đều thành 2 nhóm: Đại Số và Giải Tích cùng với 2 thầy cô dẫn đoàn là thầy Thọ và cô Lý. <br/>
-Đoàn chúng tôi vào Huế bằng máy bay hãng Vietjet. Ở sân bay chúng tôi bắt gặp đoàn ĐHSP Hà Nội và đoàn Đại học KTQD. Đây cũng là lần đầu tiên tôi được đi máy bay, cảm giác khá hồi hộp và hào hứng. Thật tiếc là sau chuyến bay đó tôi không muốn phải đi thêm máy bay lần nào nữa :(
+Đoàn chúng tôi vào Huế bằng máy bay hãng Vietjet. Ở sân bay chúng tôi bắt gặp đoàn ĐHSP Hà Nội và đoàn Đại học KTQD. Đây cũng là lần đầu tiên tôi được đi máy bay, cảm giác khá hồi hộp và hào hứng. Thật tiếc là sau chuyến bay đó tôi không muốn phải đi thêm máy bay lần nào nữa :cry:
 
 {:refdef: style="text-align: center;"}
   ![Smile](/images/OlympicMath2023/6.jpg)  
   Hình 0: Vietjet tài trợ bức ảnh này
 {: refdef}
 
-<!-- <figure>
-  <img style="width: 750px; height: 500px" src="/images/OlympicMath2023/6.jpg">
-  <figcaption style="text-align: center; padding-top: 10px"> Hình 0: Vietjet tài trợ bức ảnh này </figcaption>
-</figure> -->
-
 ## Ngày thứ nhất (03 - 04 - 2023)
 
-Chúng tôi vào Huế lúc 13h chiều, thời tiết ở đây nắng kinh khủng. Đã rất lâu rồi tôi mới được cảm nhận cái nắng miền Trung như thiêu như đốt. Tất cả chúng tôi ai nấy đều mệt mỏi rã rời. May mà có một ông Tây để cho chúng tôi bắt chuyện, lúc đó cả đội mới đỡ mệt hơn. <br/>Bọn tôi đi taxi về khách sạn Duy Tân, phòng của 3 anh em đội Đại số là 116, Giải tích là 117, chị Thơm và chị Lan Anh thì ở 213. Lúc chúng tôi lên nhận phòng thì thấy đoàn Đại học Kiến Trúc đang thi nhau làm kỷ yếu. Chúng tôi có chơi và trêu họ một chút rồi vào phòng.<br/> Một lúc sau, cả đoàn được 2 thầy cô dẫn đi ăn cơm niêu. Lần đầu tôi được ăn món thịt luộc chấm tôm chua. Tôi thấy không hợp khẩu vị của mình cho lắm, mắm tôm vẫn là chân ái của đời tôi. Ăn uống xong xuôi thì cả đoàn đi bộ về. Thầy buổi chiều hình như phải đi họp, còn bọn tôi thì thi nhau trùm chăn ngủ không biết trời đất gì. Khoảng chập tối, thầy đi gõ cửa từng phòng để gọi bọn tôi đi ăn tối. Chắc thầy nghĩ chúng tôi đang ôn bài say sưa nhưng thực ra thì không, bọn tôi ai nấy rủ nhau ngủ. Bọn em xin lỗi nhưng bọn em quá mệt rồi :(. 
+Chúng tôi vào Huế lúc 13h chiều, thời tiết ở đây nắng kinh khủng. Đã rất lâu rồi tôi mới được cảm nhận cái nắng miền Trung như thiêu như đốt. Tất cả chúng tôi ai nấy đều mệt mỏi rã rời. May mà có một ông Tây để cho chúng tôi bắt chuyện, lúc đó cả đội mới đỡ mệt hơn. <br/>Bọn tôi đi taxi về khách sạn Duy Tân, phòng của 3 anh em đội Đại số là 116, Giải tích là 117, chị Thơm và chị Lan Anh thì ở 213. Lúc chúng tôi lên nhận phòng thì thấy đoàn Đại học Kiến Trúc đang thi nhau làm kỷ yếu. Chúng tôi có chơi và trêu họ một chút rồi vào phòng.<br/> Một lúc sau, cả đoàn được 2 thầy cô dẫn đi ăn cơm niêu. Lần đầu tôi được ăn món thịt luộc chấm tôm chua. Tôi thấy không hợp khẩu vị của mình cho lắm, mắm tôm vẫn là chân ái của đời tôi. Ăn uống xong xuôi thì cả đoàn đi bộ về. Thầy buổi chiều hình như phải đi họp, còn bọn tôi thì thi nhau trùm chăn ngủ không biết trời đất gì. Khoảng chập tối, thầy đi gõ cửa từng phòng để gọi bọn tôi đi ăn tối. Chắc thầy nghĩ chúng tôi đang ôn bài say sưa nhưng thực ra thì không, bọn tôi ai nấy rủ nhau ngủ. Bọn em xin lỗi nhưng bọn em quá mệt rồi :sleepy:. 
 
 Chiều hôm đó cả đội ăn cơm ở khách sạn, buổi tối tầm 9 - 10h đêm thì đoàn Đại học Thủy Lợi phân hiệu đến. Đêm đó 3 anh em chúng tôi là anh Nam, anh Kiên và tôi mang sách ra ôn để chiều ngày mai thi. Tôi ngồi xem lại tất cả các bài tôi đã giải, cũng không muốn học thêm gì nữa vì lúc đó khá muộn rồi. Tôi cất sách vở và đi ngủ trước, 2 anh vẫn ngồi ôn bài, một lúc sau thì đành lên ngủ với đứa em này. Đêm đó tôi trằn trọc khó ngủ, chắc có lẽ vì lạ giường và tôi đã phải di chuyển một quãng đường xa nên hơi mệt mỏi. 
 
@@ -56,11 +51,6 @@ Sáng thứ 4, đội giải tích bắt đầu làm bài thi. Đội giải tí
   Hình 2: The Coffee House
 {: refdef}
 
-<!-- <figure>
-  <img style="width: 800px; height: 800px" src="/images/OlympicMath2023/44.jpg">
-  <figcaption style="text-align: center; padding-top: 10px">  Hình 2: The Coffee House</figcaption>
-</figure> -->
-
 Hơn 10h trưa, trời nóng khá gay gắt, cả đội chúng tôi đến trường để đón đội giải tích. Tôi có gặp một bạn ở Vĩnh Phúc, hỏi qua thì bạn có bảo đề năm nay khá dễ thở. Bạn làm được 4/5 bài, lúc đó tôi nghĩ hơi tiêu cực 1 chút. Nếu đề quá dễ thì điểm sàn sẽ rất cao, nếu trình bày không cẩn thận sẽ rất dễ mất điểm. Tầm 11h, đội giải tích ra thì ai cũng bảo làm được chắc chắn 2 bài. Tôi và cả đội nghĩ bên giải tích điểm sẽ cao. Lúc đi về thì tôi biết được là có Ngô Quý Đăng - Vàng IMO 2020, 2022 có tham dự kỳ thi này. Tôi cũng được gặp Phạm Hoàng Sơn - Bạc IMO 2022 và thầy Lê Phúc Lữ. 
 
 Sau buổi ăn cơm thì đội đại số chúng tôi có rủ thêm anh Huy, anh Trường bên phân hiệu về đánh bài uống nước. Cảm ơn anh Trường và anh Huy vì những pha cứu bài 1 điểm khó tin của em :vv Sau đó thì tôi chạy sang phòng anh Huy chơi bài Poker búng tai tiếp. Dự định buổi chiều của mấy anh em là đi đá bóng sân nhân tạo. Tiếc là chúng tôi không thuê được sân nên rủ nhau đi Quốc học Huế.
@@ -71,11 +61,6 @@ Tôi, anh Kiên và chị Lan Anh đi trước, đợi mãi mới thấy cô và
   ![Smile](/images/OlympicMath2023/8.jpg)  
   Hình 3: Đội Đại số ở trường Chuyên Quốc học Huế
 {: refdef}
-
-<!-- <figure>
-  <img style="width: 800px; height: 700px" src="/images/OlympicMath2023/8.jpg">
-  <figcaption style="text-align: center; padding-top: 10px">  Hình 3: Đội Đại số ở trường Chuyên Quốc học Huế</figcaption>
-</figure> -->
 
 Tối đó bọn tôi được thầy cô dẫn đi bánh xèo Huế. Nhân các loại bánh thường là tôm, tôi ăn thấy khá ngon. Ăn uống xong, mọi người đi bộ ở Sông Hương. Tôi và anh Kiên đến sau vì anh Kiên phải đi với tôi lấy điện thoại bị quên. Anh Kiên mua cho tôi 1 bịch sữa chua để uống. Em cảm ơn anh Kiên rất nhiều. Thầy cô định dẫn chúng tôi đi thăm quan trường chuyên Quốc học Huế nhưng chúng tôi đã đi từ lúc chiều nên xin thầy cô được về trước. Trên đường đi, tôi có nói chuyện với anh Tân, một người anh có xuất phát điểm khá giống tôi. Tôi quen được thêm cả anh Sơn nữa, cả 2 anh đều ở Buôn Mê Thuột. 
 
@@ -94,12 +79,6 @@ Sáng thứ 5, các thầy cô đi họp. Anh Kiên thi cuối kỳ môn gì đ�
   ![Smile](/images/OlympicMath2023/2 .JPG)  
   Hình 5: Đội Đại số ở cổng kinh thành
 {: refdef}
-
-<!-- <figure>
-  <img style="width: 800px; height: 700px" src="/images/OlympicMath2023/23.jpg">
-  <figcaption style="text-align: center; padding-top: 10px"> Hình 6: Thầy đang chuẩn bị chụp ảnh cho tôi
-</figcaption>
-</figure> -->
 
 {:refdef: style="text-align: center;"}
   ![Smile](/images/OlympicMath2023/23.jpg)  
