@@ -190,7 +190,7 @@ Buổi tối bọn tôi và các đoàn trường khác ăn tiệc gala ở khá
   Hình 25: Anh Tân, anh Huy, Anh Kiên, Đạt, anh Nam, anh Trường 
 {: refdef}
 
-Bàn tôi chắc là nổi nhất cả hội trường đêm đó. Khi mọi người đang ăn uống thì chúng tôi bắt đầu 1.2.3 Dooooo làm náo loạn cả hổi trường :v.
+Bàn tôi chắc là nổi nhất cả hội trường đêm đó. Khi mọi người đang ăn uống thì chúng tôi bắt đầu 1.2.3 Dooooo làm náo loạn cả hội trường :v.
 
 {:refdef: style="text-align: center;"}
   ![Smile](/images/OlympicMath2023/3.jpg)  
@@ -214,12 +214,7 @@ Bọn tôi có đăng ký hát bài "Hào khí Việt Nam". Anh Kiên và anh Hu
   Hình 29: Hai đội tuyển trong đêm gala 
 {: refdef}
 
-Có một bạn nữ đến từ Đại học Vinh hát bài "Tàu anh qua núi". Hehe, được gặp đồng hương rồi. Tôi rất ấn tượng với giọng hát của em ấy. Khuôn mặt mũm mĩm, đáng yêu, tối về thì tôi kiếm được Facebook của em đó. Tôi có gặp lại Hà, đang học Đại học Vinh. Hà thi môn giải tích, ngày xưa học cùng A01 với tôi, tôi không nhớ là lớp mấy nữa :( Xin lỗi bạn Hà nhiều nhé. 
-
-{:refdef: style="text-align: center;"}
-  ![Smile](/images/OlympicMath2023/4.jpg)  
-  Hình 30: Băng Béo đáng yêu
-{: refdef}
+Có một bạn nữ đến từ Đại học Vinh hát bài "Tàu anh qua núi". Hehe, được gặp đồng hương rồi. Tôi rất ấn tượng với giọng hát của em ấy. Tôi có gặp lại Hà, đang học Đại học Vinh. Hà thi môn giải tích, ngày xưa học cùng A01 với tôi, tôi không nhớ là lớp mấy nữa :( Xin lỗi bạn Hà nhiều nhé. 
 
 Tối đêm đó tôi quẩy nhiệt quá, thầy cô cũng bất ngờ với tôi luôn :v Tôi mất luôn giọng, đến tận ngày hôm nay lúc đang viết bài này vân đang đau họng. Quẩy xong rồi, chúng tôi về rủ cô Loan đi ăn chè hẻm. Tôi thấy cũng khá bình thường, hơi ngọt một chút. Tối ngủ thì thầy báo anh Nam được giải khuyến khích. 
 
@@ -255,14 +250,7 @@ Sáng thứ 7, cả đoàn ra trường ĐHSP Huế để bế mạc. Tôi kiế
   Hình 36: Anh Trường với kiểu chụp khép nép 
 {: refdef}
 
-Lúc chụp ảnh, tôi có gặp lại bạn Lê Kim Anh bên KTQD. Lần đầu tôi gặp bạn này là khi cả 2 đội ở hàng chờ sân bay. Đội tôi ai cũng bảo bạn đó không xinh, nhưng tôi thấy xinh là được rồi. Kim Anh hình như được đồng môn giải tích. 
-
-{:refdef: style="text-align: center;"}
-  ![Smile](/images/OlympicMath2023/5.jpg)  
-  Hình 37: Bạn Kim Anh mặc áo xanh lá
-{: refdef}
-
-Buổi trưa chúng tôi ăn cơm tại khách sạn rồi sắp xếp đồ để đi về. Chiều thứ 7, đoàn Hà Nội chúng tôi lên tàu để về. Đoàn Đại học Vinh cũng đi tàu về nhưng khởi hành trước chúng tôi. Lại không được chụp ảnh với em Băng :( Ở trên tàu, tôi nằm ở tầng 3, gần cái điều hòa nên hơi lạnh. Buổi chiều, cô Lý mua cơm cho chúng tôi. Tôi ăn suất cơm gà. Tối chạy sang phòng giải tích đánh bài với em gái bên Đại học Xây dựng. 
+Buổi trưa chúng tôi ăn cơm tại khách sạn rồi sắp xếp đồ để đi về. Chiều thứ 7, đoàn Hà Nội chúng tôi lên tàu để về. Ở trên tàu, tôi nằm ở tầng 3, gần cái điều hòa nên hơi lạnh. Buổi chiều, cô Lý mua cơm cho chúng tôi. Tôi ăn suất cơm gà. Tối chạy sang phòng giải tích đánh bài với em gái bên Đại học Xây dựng. 
 
 ## Ngày thứ bảy (09 - 04 - 2023)
 Sáng chủ nhật, tầm 5h sáng, đoàn chúng tôi về Hà Nội. Thầy cô thuê taxi cho chúng tôi về trường Đại học Thủy Lợi rồi đưa bọn tôi đi ăn bún phía sau sân tenis. 
@@ -273,8 +261,8 @@ Em cảm ơn cô Loan, cô Lan Anh ở phân hiệu khi đã tạo cho chúng em
 
 Em sẽ không quên những người anh ở trong phân hiệu: Anh Huy (Phú Yên), anh Thành (Tiền Giang), anh Nguyên (Hồ Chí Minh), anh Trường, anh Sơn (Đak Lak), anh Tân (Bình Thuận), anh Bách (Quảng Bình), anh Phong (Bình Định) và anh Huy chụp ảnh bụng bự đã cho em những kỷ niệm khó quên. 
 
-Em cảm ơn các anh bên đội giải tích: Anh Phong, anh Phương (Quảng Ninh), anh Kiên, anh Hạnh (Nghệ An), anh Minh (Hà Tĩnh). 
+Em cảm ơn các anh bên đội giải tích: Anh Đức Phong, anh Đăng Phương (Quảng Ninh), anh Chu Kiên, anh Đình Hạnh (Nghệ An), anh Tuấn Minh (Hà Tĩnh). 
 
-Cuối cùng, em xin cảm ơn các anh chị đội Đại số: anh Nam, chị Lan Anh (Hải Dương) đã bắt chuyện với đứa em này những ngày đầu học đội tuyển. Em xin cảm ơn chị Thơm (Nam Định) đã nhiệt tình giúp đỡ em trong việc giải bài. Và cuối cùng là anh Kiên (Thanh Hóa), lúc đầu em thấy anh này không có gì đặc biệt, sau này mới phát hiện ra anh Kiên rất tốt bụng và nhiệt tình. Cảm ơn anh Kiên rất nhiều vì luôn quan tâm tới đứa em hiền lành, ít nói này :vv 
+Cuối cùng, em xin cảm ơn các anh chị đội Đại số: anh Hải Nam, chị Lan Anh (Hải Dương) đã bắt chuyện với đứa em này những ngày đầu học đội tuyển. Em xin cảm ơn chị Thơm (Nam Định) đã nhiệt tình giúp đỡ em trong việc giải bài. Và cuối cùng là anh Kiên (Thanh Hóa), lúc đầu em thấy anh này không có gì đặc biệt, sau này mới phát hiện ra anh Kiên rất tốt bụng và nhiệt tình. Cảm ơn anh Kiên rất nhiều vì luôn quan tâm tới đứa em hiền lành, ít nói này :vv 
 
 Mãi yêu gia đình Olympic Toán. Hẹn gặp lại mọi người ở những năm Olympic sau. 
