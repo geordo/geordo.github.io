@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 16 Feb 2024 07:27:19 +0700</pubDate>
-    <lastBuildDate>Fri, 16 Feb 2024 07:27:19 +0700</lastBuildDate>
+    <pubDate>Mon, 26 Feb 2024 00:20:42 +0700</pubDate>
+    <lastBuildDate>Mon, 26 Feb 2024 00:20:42 +0700</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -1360,12 +1360,8 @@ tiên công bố Huy chương Đồng, tôi không muốn nghe thấy tên mình
 chương Bạc, cuối cùng, công bố Huy chương Vàng, người đầu tiên, người thứ hai, người thứ
 ba là tôi. Tôi khóc lên vì sung sướng, trong lòng tự nói: “Mẹ ơi, con mẹ thành công rồi!”&lt;/p&gt;
 
-&lt;!-- ![](/images/JinpengAn/score.png) --&gt;
-
-&lt;figure&gt;
-  &lt;img style=&quot;width: 700px; height: 600px&quot; src=&quot;/images/JinpengAn/score.png&quot; /&gt;
-  &lt;figcaption style=&quot;text-align: center; padding-top: 10px&quot;&gt; Hình ảnh 1: Bảng kết quả của đội tuyển Trung Quốc &lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/images/JinpengAn/score.png&quot; alt=&quot;Smile&quot; /&gt;&lt;br /&gt;
+  Bảng kết quả của đội tuyển Trung Quốc&lt;/p&gt;
 
 &lt;p&gt;Tin tôi và một người bạn nữa đoạt Huy chương Vàng kỳ thi Olympic Toán học ngay chiều hôm
 đó đã được Đài phát thanh Nhân dân Trung ương TQ và Đài truyền hình Trung ương TQ đưa.
@@ -1407,7 +1403,7 @@ là, Golgi có nói một câu: Nghèo đói là trường đại học tốt nh
 rằng, người mẹ nông dân của tôi chính là người thầy giáo giỏi nhất của đời tôi”.&lt;/p&gt;
 
 &lt;p&gt;Dưới khán đài, không biết có bao nhiêu đôi mắt đã ướt đẫm, tôi quay về phía người mẹ tóc hoa
-râm của tôi, cúi người xuống kính cẩn…&lt;/p&gt;
+râm của tôi, cúi người xuống kính cẩn …&lt;/p&gt;
 </description>
         <pubDate>Fri, 14 Apr 2023 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/2023/04/14/JinpengAn.html</link>

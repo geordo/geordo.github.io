@@ -141,12 +141,10 @@ tiên công bố Huy chương Đồng, tôi không muốn nghe thấy tên mình
 chương Bạc, cuối cùng, công bố Huy chương Vàng, người đầu tiên, người thứ hai, người thứ
 ba là tôi. Tôi khóc lên vì sung sướng, trong lòng tự nói: "Mẹ ơi, con mẹ thành công rồi!"
 
-<!-- ![](/images/JinpengAn/score.png) -->
-
-<figure>
-  <img style="width: 700px; height: 600px" src="/images/JinpengAn/score.png">
-  <figcaption style="text-align: center; padding-top: 10px"> Hình ảnh 1: Bảng kết quả của đội tuyển Trung Quốc </figcaption>
-</figure>
+{:refdef: style="text-align: center;"}
+  ![Smile](/images/JinpengAn/score.png)  
+  Bảng kết quả của đội tuyển Trung Quốc
+{: refdef}
 
 Tin tôi và một người bạn nữa đoạt Huy chương Vàng kỳ thi Olympic Toán học ngay chiều hôm
 đó đã được Đài phát thanh Nhân dân Trung ương TQ và Đài truyền hình Trung ương TQ đưa.
@@ -188,4 +186,4 @@ Khi mẹ nói thế mẹ không nhìn tôi, mẹ nhìn ra con đường đất x
 rằng, người mẹ nông dân của tôi chính là người thầy giáo giỏi nhất của đời tôi”.
 
 Dưới khán đài, không biết có bao nhiêu đôi mắt đã ướt đẫm, tôi quay về phía người mẹ tóc hoa
-râm của tôi, cúi người xuống kính cẩn…
+râm của tôi, cúi người xuống kính cẩn …
