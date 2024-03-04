@@ -56,7 +56,7 @@ int main(void)
 
 Hỗ hổng nằm ở hàm `fgets` với việc cho nhập 100 bytes vào mảng `buf` có kích thước 50 bytes. Vì vậy, chúng ta có thể thay đổi giá trị biến `flag` từ 0xDEADBEEF thành 0x13141516 dựa vào lỗ hổng này. 
 
-Quan sát trong IDA, chúng ta dễ dàng tính ra được số bytes cần phải lấp đầy mảng `buf` được khi ghi đè giá trị biến `flag` là 0x50-0x4 = 76 (bytes)
+Quan sát trong IDA, chúng ta dễ dàng tính ra được số bytes cần phải lấp đầy mảng `buf` trước khi ghi đè giá trị biến `flag` là 0x50-0x4 = 76 (bytes)
 
 ![alt text](/images/bktrain2024/image.png)
 
