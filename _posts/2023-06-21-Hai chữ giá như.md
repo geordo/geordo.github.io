@@ -2,6 +2,7 @@
 layout: post
 title:  "Hai chữ \"giá như\""
 comments: true
+published: false
 ---
 
 Hôm nay, tôi đã hoàn thành bài thi cuối kỳ môn "Giải tích hàm nhiều biến". Sẽ không có gì để nói và sẽ không bao giờ có bài viết này trên blog của tôi, nếu tôi làm được bài thi hôm nay một cách hoàn hảo nhất. Tôi đã làm sai một câu 2 điểm trong đề bài. Đồng nghĩa với việc tôi khả năng cao sẽ không được A môn học này. 

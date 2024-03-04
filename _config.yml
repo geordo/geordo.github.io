@@ -1,15 +1,8 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
 title: George Do
 email: contact.georgedo@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Just a small boy with big fat dream 💭
+  tôi muốn mình vẫn mãi như thế, có người hỏi tôi đã từng này tuổi rồi, không thể bớt một chút “tự do” được hay sao?💭
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://geordo.github.io" # the base hostname & protocol for your site
 twitter_username: georgedo_twit
